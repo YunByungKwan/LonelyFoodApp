@@ -12,14 +12,14 @@
 
 - Kotlin
 
-
 ### Components
 
-- Android Jetpack
-  - ViewModel
-  - LiveData
-  - DataBinding
-  - Navigation
+- Architecture
+  - Android Jetpack
+    - ViewModel
+    - LiveData
+    - DataBinding
+    - Navigation
 - UI
   - Recyclerview
   - Viewpager2
@@ -27,28 +27,31 @@
   - circleimageview
   - Glide
   - Lottie
-- Firebase
-  - Authentication
-  - Realtime Database
-  - Storage
-- Retrofit2
-- Unit Test
+- Back-End
+  - Firebase
+    - Authentication
+    - Realtime Database
+    - Storage
+  - Retrofit
+  - RxJava
+- Test
   - Koin
-  - Mokito
+  - Mockito
   - hamcrest
   - JUnit
-- Etc
-  - Naver Open api
+- Etc...
+  - Naver Search Place api
   - android-image-cropper
   - viewpagerdotsindicator
 
 ### Features
 
-- ViewModel + LiveData + Databinding + Repository로 구성
-- Firebase Authentication, Google & Facebook 로그인 연동
-- Firebase realtime database에 데이터 저장 및 호출
-- Firebase storage 내 이미지 업로드
-- 네이버 검색 API를 Retrofit2로 통신
-- Glide를 사용하여 이미지 로드
-- Lottie를 사용한 애니메이션 구현
-- Unit test code 작성
+- Activity/Fragment + ViewModel + Repository + DataSource
+- LiveData + Databinding
+- Firebase Authentication, Google & Facebook User Login
+- Database: Firebase realtime database
+- Image Storage: Firebase storage
+- Networking with Retrofit + RxJava
+- Image loading with Glide
+- Animation with Lottie
+- Unit test with Koin, Mockito, hamcrest and JUnit
