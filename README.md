@@ -55,3 +55,7 @@
 - Image loading with Glide
 - Animation with Lottie
 - Unit test with Koin, Mockito, hamcrest and JUnit
+
+### Architecture
+
+![test](https://user-images.githubusercontent.com/51109517/115665357-2a8ca800-a37e-11eb-8185-e78b3be34171.png)
