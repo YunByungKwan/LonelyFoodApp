@@ -1,6 +1,7 @@
 # 음식 일기 안드로이드 앱
 
 > 고독한 미식가는 음식 일기를 작성하고 공유할 수 있는 안드로이드 앱입니다.
+> <br>구글 스토어: https://play.google.com/store/apps/details?id=org.ybk.fooddiaryapp
 
 ## Introduce.
 
@@ -14,7 +15,6 @@
 
 ### About App
 
-- <B>Play store:</B> https://play.google.com/store/apps/details?id=org.ybk.fooddiaryapp
 - <B>Language:</B> Kotlin
 - <B>Libraries:</B>
   - Android Jetpack(ViewModel, LiveData, DataBinding, Navigation)
@@ -22,13 +22,13 @@
   - Retrofit, RxJava
   - Koin, Mockito, hamcrest
   - etc...
+- <B>Features</B>
+  - 안드로이드 권장 앱 아키텍처, 클린 아키텍처 기반으로 앱 구조 설계
+  - 파이어베이스를 Back-end로 사용
+  - Retrofit, RxJava를 통한 비동기 API 통신
+  - Koin, Mockito등을 통한 단위 테스트
 
-### Features
-
-- 안드로이드 권장 앱 아키텍처, 클린 아키텍처 기반으로 앱 구조 설계
-- 파이어베이스를 Back-end로 사용
-- Retrofit, RxJava를 통한 비동기 API 통신
-- Koin, Mockito등을 통한 단위 테스트
+<br>
 
 ## Process.
 
