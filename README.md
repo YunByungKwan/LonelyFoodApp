@@ -1,6 +1,6 @@
-# 음식 일기 안드로이드 앱
+# 고독한 미식가
 
-> 고독한 미식가는 음식 일기를 작성하고 공유할 수 있는 안드로이드 앱입니다.
+> 음식 일기를 작성하고 공유할 수 있는 안드로이드 앱입니다.
 > <br>구글 스토어: https://play.google.com/store/apps/details?id=org.ybk.fooddiaryapp
 
 ## Introduce.
