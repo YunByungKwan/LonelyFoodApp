@@ -23,10 +23,12 @@
   - Koin, Mockito, hamcrest
   - etc...
 - <B>Features</B>
-  - 안드로이드 권장 앱 아키텍처, 클린 아키텍처 기반으로 앱 구조 설계
-  - 파이어베이스를 Back-end로 사용
+  - Android Jetpack을 사용해서 MVVM 패턴으로 설계
+  - Firebase Authentication을 연동하여 Google & Facebook 로그인
+  - Firebase Realtime Database 사용
+  - Firebase Storage를 이미지 저장소로 사용
   - Retrofit, RxJava를 통한 비동기 API 통신
-  - Koin, Mockito등을 통한 단위 테스트
+  - Koin, Mockito 등을 통한 단위 테스트
 
 <br>
 
