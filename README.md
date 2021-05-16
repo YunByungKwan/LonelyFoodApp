@@ -42,7 +42,7 @@
 
 ### :point_right: Main Class Diagram
 
-<img src="https://user-images.githubusercontent.com/51109517/118347062-46e5c400-b57b-11eb-8b42-001613ab8dda.png" width=700 height=400/>
+<img src="https://user-images.githubusercontent.com/51109517/118401924-91ae2b80-b6a2-11eb-957a-d49f5a03fc2d.png" width=700 height=400/>
 
 <br>
 
