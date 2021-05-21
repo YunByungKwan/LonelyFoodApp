@@ -56,3 +56,35 @@
 
 <img src="https://user-images.githubusercontent.com/51109517/118347314-46e6c380-b57d-11eb-81b3-c82f79828974.png" width=700 height=400/>
 
+## Test.
+
+### :point_right: instrumentation tests
+<details>
+<summary>DiaryFragmentTest</summary>
+<div markdown="1">
+
+```kotlin
+@RunWith(AndroidJUnit4::class)
+class DiaryFragmentTest {
+
+    @get:Rule
+    val intentRule = IntentsTestRule(FragmentScenario.EmptyFragmentActivity::class.java)
+
+    @Before
+    fun set_up() {
+        launchFragmentInContainer<DiaryFragment>()
+    }
+
+    @Test
+    fun should_send_intent_to_AddDiaryActivity_if_FloatingActionButton_is_clicked() {
+        val targetAct = "org.ybk.fooddiaryapp.ui.adddiary.AddDiaryActivity"
+        Thread.sleep(3000)
+        onView(withId(R.id.lottieView)).perform(click())
+        intended(IntentMatchers.hasComponent(targetAct))
+        Thread.sleep(1000)
+    }
+}
+```
+
+</div>
+</details>
