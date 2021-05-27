@@ -5,6 +5,14 @@
 > 음식 일기를 작성하고 공유할 수 있는 안드로이드 앱입니다.
 > <br>[구글 플레이 스토어 바로 가기](https://play.google.com/store/apps/details?id=org.ybk.fooddiaryapp)
 
+### :point_right: Trouble Shooting
+
+- [[2021.05.20] 코틀린 GSON 관련 이슈](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.05.20%5D-%EC%BD%94%ED%8B%80%EB%A6%B0-GSON-%EA%B4%80%EB%A0%A8-%EC%9D%B4%EC%8A%88)
+- [[2021.04.16] RxJava 도입](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.04.16%5D-RxJava-%EB%8F%84%EC%9E%85)
+- [[2021.04.06] BindingAdapter 도입](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.04.06%5D-BindingAdapter-%EB%8F%84%EC%9E%85)
+- [[2021.03.21] Unit Test 도입](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.03.21%5D-Unit-Test-%EB%8F%84%EC%9E%85)
+- [[2021.03.16] DI 도입(Koin 라이브러리)](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.03.16%5D-DI-%EB%8F%84%EC%9E%85(Koin-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC))
+
 ### :point_right: Preview
 
 <img src="https://user-images.githubusercontent.com/51109517/113472872-ddb16200-94a0-11eb-8731-9abdeda63754.gif" width=200 height=400/> <img src="https://user-images.githubusercontent.com/51109517/113472937-3ed93580-94a1-11eb-8ac1-91a2ae00452c.gif" width=200 height=400/> <img src="https://user-images.githubusercontent.com/51109517/113472941-43055300-94a1-11eb-901c-bb2d3a87e622.gif" width=200 height=400/> <img src="https://user-images.githubusercontent.com/51109517/113472940-413b8f80-94a1-11eb-8dd1-148084c23445.gif" width=200 height=400/>
