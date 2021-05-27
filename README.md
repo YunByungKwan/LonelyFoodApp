@@ -1,14 +1,13 @@
-# 고독한 미식가
+# 고독한 미식가 [Google Play Store](https://play.google.com/store/apps/details?id=org.ybk.fooddiaryapp)
 
 ## Introduce.
 
-> 내가 찾은 맛집의 위치와 그 곳에서 먹은 음식을 다이어리로 작성할 수 있습니다.
-> <br>[구글 플레이 스토어 바로 가기](https://play.google.com/store/apps/details?id=org.ybk.fooddiaryapp)
+> 고독한 미식가는 그날에 갔던 맛집의 위치와 그 곳에서 먹은 음식을 다이어리로 기록할 수 있습니다.
 
-### :point_right: Why.
+### :point_right: Why
 > 인스타그램에 음식 사진만 올리는 사람들을 보고 영감을 받아 개발했습니다.
 
-### :point_right: Trouble Shooting
+### :fire: Trouble Shooting
 
 - [[2021.05.26] BaseActivity, BaseFragment, BaseViewModel 추가](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.05.26%5D-BaseActivity,-BaseFragment,-BaseViewModel-%EC%B6%94%EA%B0%80)
 - [[2021.05.20] 코틀린 GSON 관련 이슈](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.05.20%5D-%EC%BD%94%ED%8B%80%EB%A6%B0-GSON-%EA%B4%80%EB%A0%A8-%EC%9D%B4%EC%8A%88)
@@ -53,45 +52,3 @@
 
 <br>
 
-## Main Process.
-
-### :point_right: Login Process
-
-<img src="https://user-images.githubusercontent.com/51109517/115982852-01b41f00-a5d9-11eb-8f55-08a7f3a1d735.jpg" width=700 height=400/>
-
-### :point_right: Writing Process
-
-<img src="https://user-images.githubusercontent.com/51109517/118347314-46e6c380-b57d-11eb-81b3-c82f79828974.png" width=700 height=400/>
-
-## Test.
-
-### :point_right: instrumentation tests
-<details>
-<summary>DiaryFragmentTest</summary>
-<div markdown="1">
-
-```kotlin
-@RunWith(AndroidJUnit4::class)
-class DiaryFragmentTest {
-
-    @get:Rule
-    val intentRule = IntentsTestRule(FragmentScenario.EmptyFragmentActivity::class.java)
-
-    @Before
-    fun set_up() {
-        launchFragmentInContainer<DiaryFragment>()
-    }
-
-    @Test
-    fun should_send_intent_to_AddDiaryActivity_if_FloatingActionButton_is_clicked() {
-        val targetAct = "org.ybk.fooddiaryapp.ui.adddiary.AddDiaryActivity"
-        Thread.sleep(3000)
-        onView(withId(R.id.lottieView)).perform(click())
-        intended(IntentMatchers.hasComponent(targetAct))
-        Thread.sleep(1000)
-    }
-}
-```
-
-</div>
-</details>
