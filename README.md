@@ -2,11 +2,15 @@
 
 ## Introduce.
 
-> 음식 일기를 작성하고 공유할 수 있는 안드로이드 앱입니다.
+> 내가 찾은 맛집의 위치와 그 곳에서 먹은 음식을 다이어리로 작성할 수 있습니다.
 > <br>[구글 플레이 스토어 바로 가기](https://play.google.com/store/apps/details?id=org.ybk.fooddiaryapp)
+
+### :point_right: Why.
+> 인스타그램에 음식 사진만 올리는 사람들을 보고 영감을 받아 개발했습니다.
 
 ### :point_right: Trouble Shooting
 
+- [[2021.05.26] BaseActivity, BaseFragment, BaseViewModel 추가](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.05.26%5D-BaseActivity,-BaseFragment,-BaseViewModel-%EC%B6%94%EA%B0%80)
 - [[2021.05.20] 코틀린 GSON 관련 이슈](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.05.20%5D-%EC%BD%94%ED%8B%80%EB%A6%B0-GSON-%EA%B4%80%EB%A0%A8-%EC%9D%B4%EC%8A%88)
 - [[2021.04.16] RxJava 도입](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.04.16%5D-RxJava-%EB%8F%84%EC%9E%85)
 - [[2021.04.06] BindingAdapter 도입](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.04.06%5D-BindingAdapter-%EB%8F%84%EC%9E%85)
@@ -20,12 +24,7 @@
 ### :point_right: About App
 
 - <B>Language:</B> Kotlin
-- <B>Libraries:</B>
-  - Android Jetpack(ViewModel, LiveData, DataBinding, Navigation)
-  - Firebase(Authentication, Realtime Database, Storage)
-  - Retrofit, RxJava
-  - Koin, Mockito, hamcrest
-  - etc...
+- <B>Libraries:</B> Android Jetpack(ViewModel, LiveData, DataBinding, Navigation), Firebase(Authentication, Realtime Database, Storage), Retrofit, RxJava, Koin, Mockito, hamcrest, Espresso, JUnit
 - <B>How to</B>
   - Android Jetpack을 사용해서 MVVM 패턴으로 설계
   - Firebase Authentication을 연동하여 Google & Facebook 로그인
