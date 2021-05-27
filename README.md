@@ -25,12 +25,12 @@
 - <B>Language:</B> Kotlin
 - <B>Libraries:</B> Android Jetpack(ViewModel, LiveData, DataBinding, Navigation), Firebase(Authentication, Realtime Database, Storage), Retrofit, RxJava, Koin, Mockito, hamcrest, Espresso, JUnit
 - <B>How to</B>
-  - Android Jetpack을 사용해서 MVVM 패턴으로 설계
+  - MVVM패턴(ViewModel + LiveData + DataBinding + Repository + DI)으로 설계
   - Firebase Authentication을 연동하여 Google & Facebook 로그인
   - Firebase Realtime Database 사용
   - Firebase Storage를 이미지 저장소로 사용
   - Retrofit, RxJava를 통한 비동기 API 통신
-  - Koin을 통한 의존성 주입
+  - Koin을 통한 DI(Dependency Injection)
   - Mockito JUnit 등을 통한 단위 테스트 작성
 
 ### :point_right: Main Feature
