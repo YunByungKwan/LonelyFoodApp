@@ -9,6 +9,7 @@
 
 ### :fire: Trouble Shooting
 
+- [[2021.05.26] 일기 추가 코드 리팩토링](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.05.26%5D-%EC%9D%BC%EA%B8%B0-%EC%B6%94%EA%B0%80-%EC%BD%94%EB%93%9C-%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81)
 - [[2021.05.26] BaseActivity, BaseFragment, BaseViewModel 추가](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.05.26%5D-BaseActivity,-BaseFragment,-BaseViewModel-%EC%B6%94%EA%B0%80)
 - [[2021.05.20] 코틀린 GSON 관련 이슈](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.05.20%5D-%EC%BD%94%ED%8B%80%EB%A6%B0-GSON-%EA%B4%80%EB%A0%A8-%EC%9D%B4%EC%8A%88)
 - [[2021.04.16] RxJava 도입](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.04.16%5D-RxJava-%EB%8F%84%EC%9E%85)
