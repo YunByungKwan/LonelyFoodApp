@@ -21,35 +21,5 @@
 
 <img src="https://user-images.githubusercontent.com/51109517/113472872-ddb16200-94a0-11eb-8731-9abdeda63754.gif" width=200 height=400/> <img src="https://user-images.githubusercontent.com/51109517/113472937-3ed93580-94a1-11eb-8ac1-91a2ae00452c.gif" width=200 height=400/> <img src="https://user-images.githubusercontent.com/51109517/113472941-43055300-94a1-11eb-901c-bb2d3a87e622.gif" width=200 height=400/> <img src="https://user-images.githubusercontent.com/51109517/113472940-413b8f80-94a1-11eb-8dd1-148084c23445.gif" width=200 height=400/>
 
-### :point_right: About App
 
-- <B>Language:</B> Kotlin
-- <B>Libraries:</B> Android Jetpack(ViewModel, LiveData, DataBinding, Navigation), Firebase(Authentication, Realtime Database, Storage), Retrofit, RxJava, Koin, Mockito, hamcrest, Espresso, JUnit
-- <B>How to</B>
-  - MVVM패턴(ViewModel + LiveData + DataBinding + Repository + DI)으로 설계
-  - Firebase Authentication을 연동하여 Google & Facebook 로그인
-  - Firebase Realtime Database 사용
-  - Firebase Storage를 이미지 저장소로 사용
-  - Retrofit, RxJava를 통한 비동기 API 통신
-  - Koin을 통한 DI(Dependency Injection)
-  - Mockito JUnit 등을 통한 단위 테스트 작성
-
-### :point_right: Main Feature
-
-- 구글, 페이스북 간편 로그인 기능
-- 일기 작성,수정,삭제 기능
-- 네이버 검색 API를 통한 맛집 검색 기능
-- 음식(1 - 4개), 프로필 이미지 첨부 기능
-- 일기 작성 중 swipe를 통한 이미지 삭제 기능
-- 다른 회원 및 공유하기를 통해 다른 사람들의 공유 기능
-
-### :point_right: Architecture
-
-<img src="https://user-images.githubusercontent.com/51109517/115983229-f19d3f00-a5da-11eb-9720-4f27e267a319.png" width=700 height=400/>
-
-### :point_right: Main Class Diagram
-
-<img src="https://user-images.githubusercontent.com/51109517/118401924-91ae2b80-b6a2-11eb-957a-d49f5a03fc2d.png" width=700 height=400/>
-
-<br>
 
