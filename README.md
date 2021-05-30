@@ -10,6 +10,7 @@
 ### :point_right: Process
 
 - [Google & Facebook 로그인](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5BProcess%5D-Google-&-Facebook-%EB%A1%9C%EA%B7%B8%EC%9D%B8)
+- [일기 작성](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5BProcess%5D-%EC%9D%BC%EA%B8%B0-%EC%9E%91%EC%84%B1)
 
 ### :fire: Trouble Shooting
 
