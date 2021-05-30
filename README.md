@@ -7,6 +7,10 @@
 ### :point_right: Why
 > 인스타그램에 음식 사진만 올리는 사람들을 보고 영감을 받아 개발했습니다.
 
+### :point_right: Process
+
+- [Google & Facebook 로그인](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5BProcess%5D-Google-&-Facebook-%EB%A1%9C%EA%B7%B8%EC%9D%B8)
+
 ### :fire: Trouble Shooting
 
 - [[2021.05.26] 일기 추가 코드 리팩토링](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.05.26%5D-%EC%9D%BC%EA%B8%B0-%EC%B6%94%EA%B0%80-%EC%BD%94%EB%93%9C-%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81)
