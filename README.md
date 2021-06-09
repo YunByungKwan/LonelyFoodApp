@@ -31,3 +31,8 @@
 ### Architecture
 <img src="https://user-images.githubusercontent.com/51109517/121285168-de3efc80-c918-11eb-8517-4a9856e86ff9.png" width=700 height=400/>
 <br>
+
+### Dagger Graph
+<img src="https://user-images.githubusercontent.com/51109517/121352793-2c2f2100-c968-11eb-80dd-d82ba2bb8aab.png" width=700 height=400/>
+<br>
+
