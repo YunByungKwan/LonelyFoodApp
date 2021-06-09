@@ -4,7 +4,7 @@
 <br>
 
 ## Skills
-`Android Jetpack`(`ViewModel`, `LiveData`, `DataBinding`, `Navigation`), `Firebase`(`Authentication`, `Realtime Database`, `Storage`), `Retrofit`, `RxJava`, `Dagger`, `Mockito`, `hamcrest`, `Espresso`, `JUnit`<br>
+`Android Jetpack`(`ViewModel`, `LiveData`, `Room`, `DataBinding`, `Navigation`), `Firebase`(`Authentication`, `Realtime Database`, `Storage`), `Retrofit`, `RxJava`, `Dagger`, `Glide`, `Espresso`, `Mockito`, `JUnit4`, `hamcrest`<br>
 <br>
 
 ### Process
@@ -29,8 +29,5 @@
 <br>
 
 ### Architecture
-<img src="https://user-images.githubusercontent.com/51109517/115983229-f19d3f00-a5da-11eb-9720-4f27e267a319.png" width=700 height=400/>
+<img src="https://user-images.githubusercontent.com/51109517/121285168-de3efc80-c918-11eb-8517-4a9856e86ff9.png" width=700 height=400/>
 <br>
-
-### Main Class Diagram
-<img src="https://user-images.githubusercontent.com/51109517/118401924-91ae2b80-b6a2-11eb-957a-d49f5a03fc2d.png" width=700 height=400/>
