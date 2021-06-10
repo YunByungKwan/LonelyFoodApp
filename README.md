@@ -14,15 +14,15 @@
 <br>
 
 ### :fire: Trouble Shooting
-- [[21.06.09] Unit Test 추가 및 수정(Test Double 중 Stub) :heavy_check_mark:](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B21.06.09%5D-Unit-Test-%EC%B6%94%EA%B0%80-%EB%B0%8F-%EC%88%98%EC%A0%95(Test-Double-%EC%A4%91-Stub))
-- [[21.06.03] 의존성 주입 라이브러리 변경(Koin에서 Dagger로) :heavy_check_mark:](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B21.06.03%5D-%EC%9D%98%EC%A1%B4%EC%84%B1-%EC%A3%BC%EC%9E%85-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EB%B3%80%EA%B2%BD(Koin%EC%97%90%EC%84%9C-Dagger%EB%A1%9C))
-- [[21.05.26] 일기 추가 코드 리팩토링 :heavy_check_mark:](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.05.26%5D-%EC%9D%BC%EA%B8%B0-%EC%B6%94%EA%B0%80-%EC%BD%94%EB%93%9C-%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81)
-- [[21.05.26] BaseActivity, BaseFragment, BaseViewModel 추가 :heavy_check_mark:](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.05.26%5D-BaseActivity,-BaseFragment,-BaseViewModel-%EC%B6%94%EA%B0%80)
-- [[21.05.20] 코틀린 GSON 관련 이슈 :heavy_check_mark:](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.05.20%5D-%EC%BD%94%ED%8B%80%EB%A6%B0-GSON-%EA%B4%80%EB%A0%A8-%EC%9D%B4%EC%8A%88)
-- [[21.04.16] RxJava 도입 :heavy_check_mark:](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.04.16%5D-RxJava-%EB%8F%84%EC%9E%85)
-- [[21.04.06] BindingAdapter 도입 :heavy_check_mark:](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.04.06%5D-BindingAdapter-%EB%8F%84%EC%9E%85)
-- [[21.03.21] Unit Test 추가(Test Double 중 Fake) :heavy_check_mark:](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B21.03.21%5D-Unit-Test-%EC%B6%94%EA%B0%80(Test-Double-%EC%A4%91-Fake))
-- [[21.03.16] DI 도입(Koin 라이브러리) :heavy_check_mark:](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.03.16%5D-DI-%EB%8F%84%EC%9E%85(Koin-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC))
+- [[21.06.09] Unit Test 추가 및 수정(Test Double 중 Stub)](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B21.06.09%5D-Unit-Test-%EC%B6%94%EA%B0%80-%EB%B0%8F-%EC%88%98%EC%A0%95(Test-Double-%EC%A4%91-Stub))
+- [[21.06.03] 의존성 주입 라이브러리 변경(Koin에서 Dagger로)](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B21.06.03%5D-%EC%9D%98%EC%A1%B4%EC%84%B1-%EC%A3%BC%EC%9E%85-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EB%B3%80%EA%B2%BD(Koin%EC%97%90%EC%84%9C-Dagger%EB%A1%9C))
+- [[21.05.26] 일기 추가 코드 리팩토링](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.05.26%5D-%EC%9D%BC%EA%B8%B0-%EC%B6%94%EA%B0%80-%EC%BD%94%EB%93%9C-%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81)
+- [[21.05.26] BaseActivity, BaseFragment, BaseViewModel 추가](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.05.26%5D-BaseActivity,-BaseFragment,-BaseViewModel-%EC%B6%94%EA%B0%80)
+- [[21.05.20] 코틀린 GSON 관련 이슈](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.05.20%5D-%EC%BD%94%ED%8B%80%EB%A6%B0-GSON-%EA%B4%80%EB%A0%A8-%EC%9D%B4%EC%8A%88)
+- [[21.04.16] RxJava 도입](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.04.16%5D-RxJava-%EB%8F%84%EC%9E%85)
+- [[21.04.06] BindingAdapter 도입](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.04.06%5D-BindingAdapter-%EB%8F%84%EC%9E%85)
+- [[21.03.21] Unit Test 추가(Test Double 중 Fake)](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B21.03.21%5D-Unit-Test-%EC%B6%94%EA%B0%80(Test-Double-%EC%A4%91-Fake))
+- [[21.03.16] 의존성 주입 라이브러리 도입(Koin)](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.03.16%5D-DI-%EB%8F%84%EC%9E%85(Koin-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC))
 <br>
 
 ### Preview
