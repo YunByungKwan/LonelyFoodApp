@@ -21,7 +21,7 @@
 - [[21.05.20] 코틀린 GSON 관련 이슈 :heavy_check_mark:](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.05.20%5D-%EC%BD%94%ED%8B%80%EB%A6%B0-GSON-%EA%B4%80%EB%A0%A8-%EC%9D%B4%EC%8A%88)
 - [[21.04.16] RxJava 도입 :heavy_check_mark:](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.04.16%5D-RxJava-%EB%8F%84%EC%9E%85)
 - [[21.04.06] BindingAdapter 도입 :heavy_check_mark:](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.04.06%5D-BindingAdapter-%EB%8F%84%EC%9E%85)
-- [[21.03.21] Unit Test 도입 :heavy_check_mark:](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.03.21%5D-Unit-Test-%EB%8F%84%EC%9E%85)
+- [[21.03.21] Unit Test 추가(Test Double 중 Fake) :heavy_check_mark:](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B21.03.21%5D-Unit-Test-%EC%B6%94%EA%B0%80(Test-Double-%EC%A4%91-Fake))
 - [[21.03.16] DI 도입(Koin 라이브러리) :heavy_check_mark:](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.03.16%5D-DI-%EB%8F%84%EC%9E%85(Koin-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC))
 <br>
 
