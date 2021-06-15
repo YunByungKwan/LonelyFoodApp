@@ -14,6 +14,7 @@
 <br>
 
 ### :fire: Trouble Shooting
+- [[21.06.15] DI 적용 후 Scope 미적용시 ViewModel의 onCleared메서드 호출 안되는 이슈](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B21.06.15%5D-DI-%EC%A0%81%EC%9A%A9-%ED%9B%84-Scope-%EB%AF%B8%EC%A0%81%EC%9A%A9%EC%8B%9C-ViewModel%EC%9D%98-onCleared%EB%A9%94%EC%84%9C%EB%93%9C-%ED%98%B8%EC%B6%9C-%EC%95%88%EB%90%98%EB%8A%94-%EC%9D%B4%EC%8A%88)
 - [[21.06.14] Firebase Storage의 업로드 속도가 느린 이유](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B21.06.14%5D-Firebase-Storage%EC%9D%98-%EC%97%85%EB%A1%9C%EB%93%9C-%EC%86%8D%EB%8F%84%EA%B0%80-%EB%8A%90%EB%A6%B0-%EC%9D%B4%EC%9C%A0)
 - [[21.06.09] Unit Test 추가 및 수정(Test Double 중 Stub)](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B21.06.09%5D-Unit-Test-%EC%B6%94%EA%B0%80-%EB%B0%8F-%EC%88%98%EC%A0%95(Test-Double-%EC%A4%91-Stub))
 - [[21.06.03] 의존성 주입 라이브러리 변경(Koin에서 Dagger로)](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B21.06.03%5D-%EC%9D%98%EC%A1%B4%EC%84%B1-%EC%A3%BC%EC%9E%85-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EB%B3%80%EA%B2%BD(Koin%EC%97%90%EC%84%9C-Dagger%EB%A1%9C))
