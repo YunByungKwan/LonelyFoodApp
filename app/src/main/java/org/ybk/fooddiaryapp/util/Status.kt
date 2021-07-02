@@ -1,0 +1,7 @@
+package org.ybk.fooddiaryapp.util
+
+enum class Status {
+    READY, SUCCESS, FAILED, IMG_SUCCESS, IMG_FAILED, WITHDRAW_SUCCESS, WITHDRAW_FAILED,
+    LOAD_SUCCESS, LOAD_FAILED,
+    DELETE_SUCCESS, DELETE_FAILED,
+}

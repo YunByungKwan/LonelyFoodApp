@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="constants"
+            type="org.ybk.fooddiaryapp.util.Constants" />
+
+        <variable
+            name="activity"
+            type="org.ybk.fooddiaryapp.ui.adddiary.AddDiaryActivity" />
+
+        <variable
+            name="viewmodel"
+            type="org.ybk.fooddiaryapp.ui.adddiary.AddDiaryViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/base_padding">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageButton
+                    android:id="@+id/camera_btn"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ic_camera_gray"
+                    android:onClick="@{() -> activity.onClickCameraButton()}"
+                    android:layout_marginEnd="@dimen/p_5"/>
+
+                <ImageButton
+                    android:id="@+id/gallery_btn"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ic_gallery_gray"
+                    android:onClick="@{() -> activity.onClickGalleryButton()}"
+                    android:layout_marginEnd="@dimen/base_padding"/>
+
+                <TextView
+                    android:id="@+id/image_count_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{Integer.toString(viewmodel.imageCount)}"
+                    android:textColor="@{viewmodel.imageCount == constants.MAX_IMAGE_COUNT? @color/colorPrimary : @color/colorDefault}"/>
+
+                <TextView
+                    android:id="@+id/max_image_count_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="/4"
+                    android:textColor="@{viewmodel.imageCount == constants.MAX_IMAGE_COUNT? @color/colorPrimary : @color/colorDefault}"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view"
+                style="@style/MidLineHorizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/image_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:layout_marginTop="@dimen/base_padding"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <EditText
+                android:id="@+id/content_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:ems="10"
+                android:text="@={viewmodel.contents}"
+                android:hint="@string/content_hint"
+                android:inputType="textMultiLine|textNoSuggestions"
+                android:background="@drawable/gray_border"
+                android:padding="@dimen/base_padding"
+                android:gravity="left|top"
+                android:layout_marginTop="@dimen/base_padding"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image_recycler_view" />
+
+            <View
+                android:id="@+id/view2"
+                style="@style/MidLineHorizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/content_edit_text" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/base_padding"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view2">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/location_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/gray_border"
+                        android:hint="@string/add_location"
+                        android:text="@={viewmodel.address}"
+                        android:padding="@dimen/base_padding"
+                        android:layout_marginEnd="@dimen/base_padding"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/add_location_btn"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageButton
+                        android:id="@+id/add_location_btn"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/ic_map_gray"
+                        android:onClick="@{() -> activity.onClickLocationButton()}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:id="@+id/view3"
+                    style="@style/MidLineHorizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/content_edit_text" />
+
+                <Button
+                    android:id="@+id/write_complete_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/base_padding"
+                    android:background="@color/colorPrimary"
+                    android:onClick="@{() -> activity.onClickWriteCompleteButton()}"
+                    android:text="@string/write_complete"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/delete_info_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delete_info"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:visibility="gone"
+                android:layout_marginStart="@dimen/base_padding"
+                app:layout_constraintBottom_toBottomOf="@+id/image_recycler_view"
+                app:layout_constraintStart_toStartOf="@+id/image_recycler_view"
+                app:layout_constraintTop_toTopOf="@+id/image_recycler_view" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

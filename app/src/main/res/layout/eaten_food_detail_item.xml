@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="utils"
+            type="org.ybk.fooddiaryapp.util.Utils" />
+
+        <variable
+            name="diaryItem"
+            type="org.ybk.fooddiaryapp.data.local.entity.Diary" />
+
+        <variable
+            name="dialog"
+            type="org.ybk.fooddiaryapp.ui.dialog.detail.DetailDialog" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/base_padding"
+        android:paddingStart="@dimen/dp_20"
+        android:paddingEnd="@dimen/dp_20"
+        android:paddingBottom="@dimen/dp_20">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/store_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@{diaryItem.open == @string/is_open ? @drawable/ic_store : @drawable/ic_store_gray}"
+                android:layout_marginTop="@dimen/p_5"
+                android:layout_marginStart="@dimen/p_5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/store_name_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/p_5"
+                android:text="@{ diaryItem.name.isEmpty() ? @string/no_store_name : diaryItem.name}"
+                android:textColor="#757575"
+                android:layout_marginEnd="@dimen/p_5"
+                app:layout_constraintBottom_toBottomOf="@+id/store_image_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/store_image_view"
+                app:layout_constraintTop_toTopOf="@+id/store_image_view" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/eaten_food_pager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/p_5"
+                android:layout_marginStart="@dimen/p_5"
+                android:layout_marginEnd="@dimen/p_5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/store_image_view" />
+
+            <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                android:id="@+id/dots_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:dotsColor="@color/gray"
+                app:dotsCornerRadius="8dp"
+                app:dotsSize="10dp"
+                app:dotsSpacing="4dp"
+                app:dotsWidthFactor="1.2"
+                app:selectedDotColor="@color/colorPrimary"
+                app:progressMode="false"
+                android:layout_marginTop="@dimen/p_5"
+                app:layout_constraintTop_toBottomOf="@+id/eaten_food_pager"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/location_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{diaryItem.address.isEmpty() ? @string/somewhere : diaryItem.address}"
+                android:textColor="#757575"
+                android:layout_marginStart="@dimen/base_padding"
+                android:layout_marginEnd="@dimen/base_padding"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/update_time_text" />
+
+            <TextView
+                android:id="@+id/copy_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/copy"
+                android:textSize="10dp"
+                android:textColor="#757575"
+                android:onClick="@{() -> dialog.onClickCopyText()}"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_copy"
+                android:onClick="@{() -> dialog.onClickCopyIcon()}"
+                app:layout_constraintStart_toStartOf="@+id/location_text"
+                app:layout_constraintTop_toBottomOf="@+id/location_text" />
+
+            <TextView
+                android:id="@+id/update_time_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/base_padding"
+                android:text="@{ utils.getTimeFormat(diaryItem.updateTime) }"
+                android:textColor="@color/gray"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dots_indicator" />
+
+            <TextView
+                android:id="@+id/diary_content_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{diaryItem.contents}"
+                android:textColor="#757575"
+                android:layout_marginTop="@dimen/base_padding"
+                android:layout_marginStart="@dimen/base_padding"
+                android:layout_marginEnd="@dimen/base_padding"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>

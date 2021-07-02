@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="constants"
+            type="org.ybk.fooddiaryapp.util.Constants" />
+
+        <variable
+            name="diary"
+            type="org.ybk.fooddiaryapp.data.local.entity.Diary" />
+
+        <variable
+            name="fragment"
+            type="org.ybk.fooddiaryapp.ui.diary.DiaryFragment" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/store_image_view"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="@dimen/p_5"
+            android:src="@drawable/ic_store_gray"
+            app:layout_constraintBottom_toBottomOf="@+id/store_name_text"
+            app:layout_constraintStart_toEndOf="@+id/eaten_food_pager"
+            app:layout_constraintTop_toTopOf="@+id/store_name_text" />
+
+        <TextView
+            android:id="@+id/store_name_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/p_5"
+            android:layout_marginEnd="@dimen/p_5"
+            android:text="이름"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/dot_image_view"
+            app:layout_constraintEnd_toStartOf="@+id/dot_image_view"
+            app:layout_constraintStart_toEndOf="@+id/store_image_view"
+            app:layout_constraintTop_toTopOf="@+id/dot_image_view" />
+
+
+        <ImageView
+            android:id="@+id/dot_image_view"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_dot"
+            android:layout_marginEnd="@dimen/p_5"
+            android:layout_marginTop="@dimen/p_5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/update_time_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="날짜"
+            android:textColor="@color/gray"
+            android:layout_marginStart="@dimen/p_5"
+            android:layout_marginEnd="@dimen/p_5"
+            android:layout_marginBottom="@dimen/p_5"
+            app:layout_constraintBottom_toBottomOf="@+id/eaten_food_pager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/eaten_food_pager" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/eaten_food_pager"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </androidx.viewpager2.widget.ViewPager2>
+
+        <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+            android:id="@+id/dots_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:dotsColor="@color/white"
+            app:dotsCornerRadius="8dp"
+            app:dotsSize="8dp"
+            app:dotsSpacing="4dp"
+            app:dotsWidthFactor="1.2"
+            app:progressMode="false"
+            app:selectedDotColor="@color/colorPrimary"
+            android:layout_marginBottom="@dimen/p_5"
+            app:layout_constraintBottom_toBottomOf="@+id/eaten_food_pager"
+            app:layout_constraintEnd_toEndOf="@+id/eaten_food_pager"
+            app:layout_constraintStart_toStartOf="@+id/eaten_food_pager" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:theme="@style/MidLineHorizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/eaten_food_pager" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

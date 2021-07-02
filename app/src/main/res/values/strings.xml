@@ -1,0 +1,155 @@
+<resources>
+
+    <string name="app_name">고독한 미식가</string>
+    <string name="first">First</string>
+    <string name="is_visited">isVisited</string>
+
+    <string name="copy"><u>복사</u></string>
+
+    <string name="id">아이디</string>
+    <string name="pw">비밀번호</string>
+    <string name="login">로그인하기</string>
+    <string name="sign_up">회원가입하기</string>
+    <string name="find_id_pw">아이디/비밀번호를 잊어버리셨나요?</string>
+    <string name="find_id">아이디찾기</string>
+    <string name="find_pw">비밀번호찾기</string>
+    <string name="auto_login">자동로그인</string>
+    <string name="sns_login">SNS로 로그인하기</string>
+
+    <string name="google_login">구글 아이디로 로그인</string>
+    <string name="naver_login">네이버 아이디로 로그인</string>
+    <string name="kakao_login">카카오 아이디로 로그인</string>
+    <string name="facebook_login">페이스북 아이디로 로그인</string>
+
+    <string name="back_key_text">버튼을 한번 더 누르시면 종료됩니다.</string>
+
+    <!-- Login -->
+    <string name="login_failed_title">로그인 실패</string>
+    <string name="login_failed_msg">로그인하는 도중 오류가 발생했어요!\n네트워크에 이상은 없는지 확인해 주세요:(</string>
+
+
+    <!-- naver login -->
+    <string name="naver_client_name">naver</string>
+
+    <!-- naver map -->
+    <string name="search_hint">음식점, 가게를 검색해 보세요.</string>
+    <string name="search">검색</string>
+
+    <!-- kakao login -->
+    <string name="email_hint">이메일을 입력해 주세요</string>
+    <string name="double_check_email">중복 확인</string>
+    <string name="pw_hint">비밀번호를 입력해 주세요</string>
+    <string name="pw_confirm_hint">비밀번호를 한번 더 입력해 주세요</string>
+
+    <string name="register_complete">회원가입 완료하기</string>
+
+    <!-- menu.xml -->
+    <string name="sort_current">최신 날짜순</string>
+    <string name="sort_past">오래된 날짜순</string>
+
+    <string name="content_hint">음식이 어땠는지 알려주세요</string>
+    <string name="write_complete">작성 끝</string>
+    <string name="edit_complete">수정 끝</string>
+    <string name="add_location">오른쪽 아이콘으로 주소를 검색해 보세요</string>
+
+    <!-- EatenFoodAdapter.kt -->
+    <string name="somewhere">어딘가..</string>
+
+    <!-- eaten_food_list_item.xml -->
+    <string name="no_diary_text">오늘 먹었던 음식을 기록해 보세요 :)</string>
+    <string name="load_diary">일기를 불러오고 있습니다...</string>
+
+    <!-- WriteEatenFoodActivity.kt -->
+    <string name="write_diary">일기 작성</string>
+    <string name="warn_contents">일기를 최소 한글자 이상 작성해 주세요</string>
+    <string name="warn_image">사진을 한장 이상 등록해 주세요</string>
+    <string name="max_image_info">사진이 꽉 찼어요 :(</string>
+    <string name="pick_image">사진 가져오기</string>
+    <string name="camera_setting">사진을 등록하기 위해서 카메라 권한이 필요합니다.\n설정에서 권한을 변경해 주세요.</string>
+    <string name="storage_setting">사진을 등록하기 위해서 저장소 권한이 필요합니다.\n설정에서 권한을 변경해 주세요.</string>
+    <string name="location_setting">위치를 표시하기 위해서 위치 권한이 필요합니다.\n설정에서 권한을 변경해 주세요.</string>
+    <string name="need_camera">설정에서 카메라 권한을 허용해 주세요</string>
+    <string name="need_read">설정에서 저장소 권한을 허용해 주세요</string>
+    <string name="need_location">설정에서 위치 권한을 허용해 주세요</string>
+
+    <!-- write_eaten_food_act.xml -->
+    <string name="add_image">이미지를 추가하세요</string>
+    <string name="delete_info">화살표 방향으로 제거</string>
+
+    <!-- EditEatenFoodActivity.kt -->
+    <string name="edit_complete_title">수정 완료</string>
+    <string name="edit_complete_msg">수정을 완료하였습니다:)</string>
+
+    <!-- find_location_act.xml -->
+    <string name="find_restaurant">맛집 검색</string>
+
+    <!-- profile_frag.xml -->
+    <string name="to_go">가고싶은곳</string>
+    <string name="gone">갔다온곳</string>
+
+    <!-- settings_frag.xml -->
+    <string name="user_setting">사용자 설정</string>
+    <string name="user_management">계정/정보 관리</string>
+    <string name="etc">기타</string>
+    <string name="version">버전</string>
+    <string name="open_source">오픈소스 라이선스</string>
+    <string name="logout">로그아웃</string>
+    <string name="withdraw">회원탈퇴</string>
+
+
+    <string name="setting">설정</string>
+
+    <!-- update_remove_dialog.xml -->
+    <string name="detail">자세히</string>
+    <string name="edit">고칠래요</string>
+    <string name="delete">지울래요</string>
+    <string name="share_with_text">공유하기</string>
+    <string name="share">다른 미식가들에게 공유하기</string>
+    <string name="need_info">가게의 위치 정보를 등록하셔야 해요</string>
+
+    <!-- food_map_frag.xml -->
+    <string name="marker_suffix">에 다녀갔어요!</string>
+
+    <!-- share_food_frag.xml -->
+    <string name="no_share_diary_text">고독하구만...:(</string>
+
+    <string name="clipboard">클립보드에 복사되었습니다</string>
+
+    <string name="bottom_menu_home">목록</string>
+    <string name="bottom_menu_share">추천</string>
+    <string name="bottom_menu_map">지도</string>
+    <string name="bottom_menu_profile">프로필</string>
+    <string name="bottom_menu_setting">설정</string>
+
+    <!-- Dialog -->
+    <string name="add_fail">작성 실패</string>
+    <string name="add_fail_for_network">네트워크 오류로 인하여 작성에 실패했습니다.</string>
+
+    <!-- 다이얼로그 공통 -->
+    <string name="ok">확인</string>
+    <string name="cancel">취소</string>
+
+    <string name="no_store_name">어느 맛집</string>
+    <string name="need_to_add_address">"주소를 추가해 주세요"</string>
+    <string name="is_open">Y</string>
+    <!-- 작성 완료 다이얼로그 -->
+    <string name="write_end">작성 완료</string>
+    <string name="write_end_text">새로운 일기가 추가됐어요!</string>
+
+    <!-- 로그아웃 다이얼로그 -->
+    <string name="logout_title">로그아웃</string>
+    <string name="logout_msg">정말 로그아웃하시겠습니까?</string>
+    <string name="withdraw_title">회원탈퇴</string>
+    <string name="withdraw_msg">정말 탈퇴하시겠습니까?\n작성했던 일기가 모두 지워집니다</string>
+
+    <!-- 점 다이얼로그 -->
+    <string name="dot_title">세부 정보</string>
+    <string name="close">닫기</string>
+    <string name="need_to_address">공개하려면 주소를 입력하셔야 해요!</string>
+    <string name="open_to_others">다른 미식가들에게 공개하기</string>
+    <string name="hide_to_others">다른 미식가들에게 비공개하기</string>
+
+    <!-- 일기 삭제 다이얼로그 -->
+    <string name="delete_diary_msg">일기를 지울까요?</string>
+    <string name="del_diary_complete_msg">일기가 삭제됐어요.</string>
+</resources>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="org.ybk.fooddiaryapp.ui.login.LoginActivity" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/intro_picture"
+        android:padding="@dimen/base_padding">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:theme="@style/MidLineHorizontal"
+            android:layout_marginEnd="@dimen/base_padding"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/sns_login_text"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/sns_login_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sns_login"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:theme="@style/MidLineHorizontal"
+            android:layout_marginStart="@dimen/base_padding"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/sns_login_text"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <Button
+            android:id="@+id/google_login_btn2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/google_login"
+            android:textColor="@color/white"
+            android:background="@drawable/social_login_button_border"
+            android:onClick="@{() -> activity.onClickGoogleLogin()}"
+            android:layout_marginTop="@dimen/base_padding"
+            app:layout_constraintTop_toBottomOf="@+id/sns_login_text"/>
+
+        <Button
+            android:id="@+id/facebook_login_btn2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/facebook_login"
+            android:textColor="@color/white"
+            android:background="@drawable/social_login_button_border"
+            android:layout_marginTop="@dimen/base_padding"
+            android:onClick="@{() -> activity.onClickFacebookLogin()}"
+            app:layout_constraintTop_toBottomOf="@+id/google_login_btn2" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/sns_login_text"
+            tools:layout_editor_absoluteX="10dp">
+
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/facebook_login_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="gone" />
+
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/google_login_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

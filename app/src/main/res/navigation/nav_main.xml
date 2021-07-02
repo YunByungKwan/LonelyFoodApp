@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_main.xml"
+    app:startDestination="@id/eatenFoodFragment">
+
+    <fragment
+        android:id="@+id/eatenFoodFragment"
+        android:name="org.ybk.fooddiaryapp.ui.diary.DiaryFragment"
+        android:label="고독한 미식가" />
+
+    <fragment
+        android:id="@+id/shareFoodFragment"
+        android:name="org.ybk.fooddiaryapp.ui.share.ShareFragment"
+        android:label="맛집 추천" />
+
+    <fragment
+        android:id="@+id/foodMapFragment"
+        android:name="org.ybk.fooddiaryapp.ui.map.MapFragment"
+        android:label="맛집 지도" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="org.ybk.fooddiaryapp.ui.profile.ProfileFragment"
+        android:label="프로필" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="org.ybk.fooddiaryapp.ui.settings.SettingsFragment"
+        android:label="설정" >
+        <action
+            android:id="@+id/action_settingsFragment_to_openSourceFragment"
+            app:destination="@id/openSourceFragment"
+            app:popUpTo="@id/openSourceFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/openSourceFragment"
+        android:name="org.ybk.fooddiaryapp.ui.settings.OpenSourceFragment"
+        android:label="오픈 소스" />
+
+</navigation>
