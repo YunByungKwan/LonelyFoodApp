@@ -14,6 +14,7 @@
 <br>
 
 ### :fire: Trouble Shooting
+- [[21.07.08] 이미지 샘플링을 통해 이미지 업로드 시간 3초 단축](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.07.08%5D-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%83%98%ED%94%8C%EB%A7%81%EC%9D%84-%ED%86%B5%ED%95%B4-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%97%85%EB%A1%9C%EB%93%9C-%EC%8B%9C%EA%B0%84-3%EC%B4%88-%EB%8B%A8%EC%B6%95)
 - [[21.06.14] Firebase Storage의 업로드 속도가 느린 이유](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B21.06.14%5D-Firebase-Storage%EC%9D%98-%EC%97%85%EB%A1%9C%EB%93%9C-%EC%86%8D%EB%8F%84%EA%B0%80-%EB%8A%90%EB%A6%B0-%EC%9D%B4%EC%9C%A0)
 - [[21.06.09] Unit Test 추가 및 수정(Test Double 중 Stub)](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B21.06.09%5D-Unit-Test-%EC%B6%94%EA%B0%80-%EB%B0%8F-%EC%88%98%EC%A0%95(Test-Double-%EC%A4%91-Stub))
 - [[21.06.06] Room 네트워크 캐시 추가](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B21.06.06%5D-Room-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%BA%90%EC%8B%9C-%EC%B6%94%EA%B0%80)
