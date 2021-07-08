@@ -138,14 +138,14 @@ object Utils {
         }
     }
 
-//    fun showNetworkErrorDialog(context: Context) {
-//        android.app.AlertDialog.Builder(context)
-//            .setTitle("네트워크 오류")
-//            .setMessage("네트워크가 연결되어 있지 않아요!")
-//            .setPositiveButton("닫기") { dialog, _ ->
-//                dialog.dismiss()
-//            }
-//            .create()
-//            .show()
-//    }
+    fun showNetworkErrorDialog(context: Context) {
+        android.app.AlertDialog.Builder(context)
+            .setTitle("네트워크 오류")
+            .setMessage("네트워크가 연결되어 있지 않아요!")
+            .setPositiveButton("닫기") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .create()
+            .show()
+    }
 }

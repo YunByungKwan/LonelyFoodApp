@@ -2,24 +2,29 @@ package org.ybk.fooddiaryapp.ui.adddiary
 
 import android.app.Activity
 import android.app.Dialog
+import android.content.ContentUris
+import android.content.Context
 import android.content.Intent
+import android.database.Cursor
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.ImageDecoder
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.theartofdev.edmodo.cropper.CropImage
-import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.add_diary_act.*
 import org.ybk.fooddiaryapp.BuildConfig
 import org.ybk.fooddiaryapp.R
@@ -34,7 +39,12 @@ import org.ybk.fooddiaryapp.util.compat.ImageCompat
 import org.ybk.fooddiaryapp.util.compat.NetworkCompat
 import org.ybk.fooddiaryapp.util.compat.PermissionCompat
 import timber.log.Timber
+import java.io.File
+import java.io.FileNotFoundException
+import java.io.FileOutputStream
 import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.*
 import javax.inject.Inject
 
 class AddDiaryActivity : AppCompatActivity() {
@@ -89,7 +99,6 @@ class AddDiaryActivity : AppCompatActivity() {
         })
 
         addDiaryViewModel.viewImageList.observe(this, androidx.lifecycle.Observer { foodImageList ->
-            Timber.d(">>>>>>>>>>>>>>>>> ViewModel > viewImageList > observe()")
             setDeleteImageInfoText(foodImageList.size)
 
             val foodImageAdapter = FoodImageAdapter(foodImageList)
@@ -110,7 +119,6 @@ class AddDiaryActivity : AppCompatActivity() {
                 }
 
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                    Timber.d(">>>>>>>>>>>>>>>>> onSwiped()")
                     foodImageList.removeAt(viewHolder.layoutPosition)
                     foodImageAdapter.notifyItemRemoved(viewHolder.layoutPosition)
                     addDiaryViewModel.viewImageList.value = foodImageList
@@ -183,16 +191,12 @@ class AddDiaryActivity : AppCompatActivity() {
         }
 
         if(!NetworkCompat.isConnected()) {
-            showNetworkErrorDialog()
+            Utils.showNetworkErrorDialog(this)
             return
         }
-
         dialog.show()
-
         addDiaryViewModel.addDiary(email!!)
     }
-
-
 
     private fun setDeleteImageInfoText(imageCount: Int) {
         if(imageCount > 0) {
@@ -213,7 +217,6 @@ class AddDiaryActivity : AppCompatActivity() {
             val uri = FileProvider.getUriForFile(this,
                 BuildConfig.APPLICATION_ID + ".provider", file)
             imageUri = uri
-            Timber.d(">>>>>>>>>>>>>>>>> uri: $uri")
             intent.putExtra(MediaStore.EXTRA_OUTPUT, uri)
             intent.resolveActivity(packageManager)?.also {
                 takePictureResult.launch(intent)
@@ -223,17 +226,12 @@ class AddDiaryActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * Camera permission result
-     */
     private val requestCameraPermission = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { isGranted ->
         if(isGranted) {
-            Timber.d(">>>>>>>>>>>>>>>>> isGranted")
             dispatchTakePictureIntent()
         } else {
-            Timber.e(">>>>>>>>>>>>>>>>> not Granted")
             ImageCompat.showSettingDialog(this, Constants.PERM_CAMERA)
         }
     }
@@ -242,11 +240,9 @@ class AddDiaryActivity : AppCompatActivity() {
         ActivityResultContracts.RequestPermission()
     ) { isGranted ->
         if(isGranted) {
-            Timber.d(">>>>>>>>>>>>>>>>> isGranted")
             val intent = ImageCompat.getGalleryIntent()
             actionGetContentResult.launch(Intent.createChooser(intent, getString(R.string.pick_image)))
         } else {
-            Timber.e(">>>>>>>>>>>>>>>>> not Granted")
             ImageCompat.showSettingDialog(this, Constants.PERM_READ_ST)
         }
     }
@@ -254,9 +250,7 @@ class AddDiaryActivity : AppCompatActivity() {
     private val takePictureResult = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
-        Timber.d(">>>>>>>>>>>>>>>>> takePictureResult")
         if(result.resultCode == RESULT_OK) {
-            Timber.d(">>>>>>>>>>>>>>>>> RESULT_OK")
             CropImage
                 .activity(imageUri)
                 .setAspectRatio(1, 1)
@@ -269,13 +263,10 @@ class AddDiaryActivity : AppCompatActivity() {
     private val actionGetContentResult = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
-        Timber.d(">>>>>>>>>>>>>>>>> actionGetContentResult")
         if(result.resultCode == RESULT_OK) {
-            Timber.d(">>>>>>>>>>>>>>>>> RESULT_OK")
-            val uri = result.data?.data
-            Timber.d(">>>>>>>>>>>>>>>>> uri: $uri")
+            val contentUri = result.data?.data
             CropImage
-                .activity(uri)
+                .activity(contentUri)
                 .setAspectRatio(1, 1)
                 .start(this)
         } else {
@@ -305,22 +296,15 @@ class AddDiaryActivity : AppCompatActivity() {
         if(requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             val result = CropImage.getActivityResult(data)
             if(resultCode == Activity.RESULT_OK) {
-                val uri = result.uri
+                val fileUri = result.uri
+                val bitmap = ImageCompat.uriToBitmap(fileUri, 8)
+                val filePath = ImageCompat.bitmapToFile(
+                    this, bitmap, Bitmap.CompressFormat.JPEG, 100)
+                val uri = ImageCompat.filePathToUri(filePath)
                 addDiaryViewModel.updateDiaryImagesInUI(email!!, uri)
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data)
         }
-    }
-
-    private fun showNetworkErrorDialog() {
-        android.app.AlertDialog.Builder(this)
-            .setTitle("네트워크 오류")
-            .setMessage("네트워크가 연결되어 있지 않아요!")
-            .setPositiveButton("닫기") { dialog, _ ->
-                dialog.dismiss()
-            }
-            .create()
-            .show()
     }
 }

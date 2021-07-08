@@ -53,6 +53,9 @@ class AddDiaryViewModel @Inject constructor(
 
     fun addDiary(email: String) {
         val urls = mutableListOf<String>()
+        //
+        val startTime = System.currentTimeMillis()
+        //
         addDisposable(
             repository.uploadFoodImages(viewImageList.value!!)
                 .subscribeOn(Schedulers.io())
@@ -63,9 +66,12 @@ class AddDiaryViewModel @Inject constructor(
 
                             val urlCompleteListener = OnCompleteListener<Uri> { urlTask ->
                                 val serverUrl = urlTask.result!!.toString()
+                                val endTime = System.currentTimeMillis()
+                                Log.d("TAG", "개별 걸린 시간:${endTime - startTime}(시작: $startTime, 끝: $endTime)")
                                 urls.add(serverUrl)
-
                                 if(urls.size == viewImageList.value!!.size) {
+                                    val endTime = System.currentTimeMillis()
+                                    Log.d("TAG", " 총 걸린 시간:${endTime - startTime}(시작: $startTime, 끝: $endTime)")
                                     addDiaryToDB(email, urls)
                                 }
                             }
@@ -125,8 +131,8 @@ class AddDiaryViewModel @Inject constructor(
         val currentTime = Utils.getCurrentTimeMillis().toString()
         val localUri = uri.toString()
         val temp = viewImageList.value
-        val id = "${Utils.convertDotToDash(email!!)}-${currentTime}"
-        temp!!.add(FoodImage(id, email!!, localUri, localUri, currentTime))
+        val id = "${Utils.convertDotToDash(email)}-${currentTime}"
+        temp!!.add(FoodImage(id, email, localUri, localUri, currentTime))
         viewImageList.value = temp!!
         val currentCount = imageCount.value!!
         imageCount.value = currentCount + 1

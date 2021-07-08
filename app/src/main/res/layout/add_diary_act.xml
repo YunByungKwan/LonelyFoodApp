@@ -187,6 +187,15 @@
                 app:layout_constraintStart_toStartOf="@+id/image_recycler_view"
                 app:layout_constraintTop_toTopOf="@+id/image_recycler_view" />
 
+            <ImageView
+                android:id="@+id/tempImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>

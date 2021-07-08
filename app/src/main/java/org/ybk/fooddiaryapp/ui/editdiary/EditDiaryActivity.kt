@@ -3,6 +3,7 @@ package org.ybk.fooddiaryapp.ui.editdiary
 import android.app.Activity
 import android.app.Dialog
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -298,7 +299,11 @@ class EditDiaryActivity : AppCompatActivity() {
         if(requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             val result = CropImage.getActivityResult(data)
             if(resultCode == Activity.RESULT_OK) {
-                val uri = result.uri
+                val fileUri = result.uri
+                val bitmap = ImageCompat.uriToBitmap(fileUri, 8)
+                val filePath = ImageCompat.bitmapToFile(
+                    this, bitmap, Bitmap.CompressFormat.JPEG, 100)
+                val uri = ImageCompat.filePathToUri(filePath)
                 editDiaryViewModel.addImageToView(email!!, uri)
             } else {
             }
