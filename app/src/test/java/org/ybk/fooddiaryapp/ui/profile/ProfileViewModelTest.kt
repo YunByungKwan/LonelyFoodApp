@@ -3,8 +3,6 @@ package org.ybk.fooddiaryapp.ui.profile
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.database.Query
-import io.reactivex.Completable
-import io.reactivex.Flowable
 import io.reactivex.Single
 import io.reactivex.android.plugins.RxAndroidPlugins
 import io.reactivex.schedulers.Schedulers
@@ -20,10 +18,10 @@ import org.mockito.Mockito
 import org.mockito.Mockito.verify
 import org.mockito.junit.MockitoJUnitRunner
 import org.ybk.fooddiaryapp.TestUtils.getOrAwaitValue
-import org.ybk.fooddiaryapp.data.DiaryRepositoryImpl
-import org.ybk.fooddiaryapp.data.local.entity.DataResponse
-import org.ybk.fooddiaryapp.data.local.entity.Diary
-import org.ybk.fooddiaryapp.ui.diary.DiaryViewModel
+import org.ybk.fooddiaryapp.data.repository.diary.DiaryRepositoryImpl
+import org.ybk.fooddiaryapp.data.model.etc.DataResponse
+import org.ybk.fooddiaryapp.data.model.diary.Diary
+import org.ybk.fooddiaryapp.presentation.profile.ProfileViewModel
 
 @RunWith(MockitoJUnitRunner::class)
 class ProfileViewModelTest {

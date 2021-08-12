@@ -9,11 +9,11 @@
 
         <variable
             name="diaryItem"
-            type="org.ybk.fooddiaryapp.data.local.entity.Diary" />
+            type="org.ybk.fooddiaryapp.data.model.diary.Diary" />
 
         <variable
             name="dialog"
-            type="org.ybk.fooddiaryapp.ui.dialog.detail.DetailDialog" />
+            type="org.ybk.fooddiaryapp.presentation.dialog.DetailDialog" />
     </data>
 
     <ScrollView

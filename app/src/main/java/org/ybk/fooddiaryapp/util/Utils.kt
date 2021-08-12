@@ -12,7 +12,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.widget.Toast
 import org.ybk.fooddiaryapp.R
-import org.ybk.fooddiaryapp.data.local.entity.Diary
+import org.ybk.fooddiaryapp.data.model.diary.Diary
 import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.*
@@ -147,5 +147,25 @@ object Utils {
             }
             .create()
             .show()
+    }
+
+    fun convertObjectToHashMap(data: Any): HashMap<String, Any> {
+        val hashMap = HashMap<String, Any>()
+        when(data) {
+            is Diary -> {
+                hashMap[Constants.DIARY_ID] = data.id
+                hashMap[Constants.DIARY_EMAIL] = data.email
+                hashMap[Constants.DIARY_CONTENTS] = data.contents
+                hashMap[Constants.DIARY_NAME] = data.name
+                hashMap[Constants.DIARY_ADDRESS] = data.address
+                hashMap[Constants.DIARY_MAPX] = data.mapx
+                hashMap[Constants.DIARY_MAPY] = data.mapy
+                hashMap[Constants.DIARY_REGISTER_TIME] = data.registerTime
+                hashMap[Constants.DIARY_UPDATE_TIME] = data.registerTime
+                hashMap[Constants.DIARY_IS_OPEN] = data.open
+                hashMap[Constants.DIARY_IMAGE_LIST] = data.imageList
+            }
+        }
+        return hashMap
     }
 }

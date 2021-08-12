@@ -6,16 +6,16 @@
 
         <variable
             name="diaryItem"
-            type="org.ybk.fooddiaryapp.data.local.entity.Diary" />
+            type="org.ybk.fooddiaryapp.data.model.diary.Diary" />
 
         <variable
             name="dialog"
-            type="org.ybk.fooddiaryapp.ui.dialog.dot.DotDialog" />
+            type="org.ybk.fooddiaryapp.presentation.dialog.DotDialog" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal">

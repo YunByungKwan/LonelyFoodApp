@@ -12,11 +12,13 @@
             <item
                 android:id="@+id/m_sort_current"
                 android:title="@string/sort_current"
+                android:icon="@drawable/ic_sort_desc"
                 app:showAsAction="never"/>
 
             <item
                 android:id="@+id/m_sort_past"
                 android:title="@string/sort_past"
+                android:icon="@drawable/ic_sort_asc"
                 app:showAsAction="never"/>
         </menu>
 

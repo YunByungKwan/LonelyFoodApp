@@ -32,7 +32,7 @@
         android:requestLegacyExternalStorage="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.editdiary.EditDiaryActivity"
+            android:name=".presentation.editdiary.EditDiaryActivity"
             android:screenOrientation="portrait"></activity>
         <!-- Naver client id -->
         <meta-data
@@ -66,19 +66,19 @@
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
         <activity
-            android:name=".ui.search.SearchActivity"
+            android:name=".presentation.search.SearchActivity"
             android:label="@string/find_restaurant"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".ui.adddiary.AddDiaryActivity"
+            android:name=".presentation.adddiary.AddDiaryActivity"
             android:label="@string/write_diary"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".ui.login.LoginActivity"
+            android:name=".presentation.login.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".ui.splash.SplashActivity"
+            android:name=".presentation.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
@@ -88,7 +88,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.main.MainActivity"
+            android:name=".presentation.MainActivity"
             android:screenOrientation="portrait"/>
 
         <provider

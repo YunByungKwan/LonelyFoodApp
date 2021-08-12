@@ -2,19 +2,16 @@ package org.ybk.fooddiaryapp.ui.adddiary
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.Espresso.pressBack
-import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.intent.Intents.intended
 import androidx.test.espresso.intent.matcher.IntentMatchers
 import androidx.test.espresso.intent.rule.IntentsTestRule
-import androidx.test.espresso.matcher.ViewMatchers.isRoot
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.ybk.fooddiaryapp.R
+import org.ybk.fooddiaryapp.presentation.adddiary.AddDiaryActivity
 
 @RunWith(AndroidJUnit4::class)
 class AddDiaryActivityTest {

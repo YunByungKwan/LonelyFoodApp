@@ -23,6 +23,23 @@ class Constants {
         const val SORT_BY_LATEST = 1
         const val SORT_BY_OLDEST = 2
 
+        const val ROOT = "users"
+        const val RECOMMENDATION_LIST = "recommendation_list"
+        const val DIARY = "diary"
+
+
+        const val DIARY_PARAM_ID = "id"
+        const val DIARY_PARAM_EMAIL = "email"
+        const val DIARY_PARAM_CONTENTS = "contents"
+        const val DIARY_PARAM_NAME = "name"
+        const val DIARY_PARAM_ADDRESS = "address"
+        const val DIARY_PARAM_MAPX = "mapx"
+        const val DIARY_PARAM_MAPY = "mapy"
+        const val DIARY_PARAM_REGISTERTIME = "register_time"
+        const val DIARY_PARAM_UPDATETIME = "update_time"
+        const val DIARY_PARAM_OPEN = "open"
+        const val DIARY_PARAM_IMAGELIST = "image_list"
+
         /** Parameters about Diary */
         const val DIARY_ID = "id"
         const val DIARY_EMAIL = "email"

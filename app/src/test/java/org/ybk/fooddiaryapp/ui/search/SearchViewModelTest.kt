@@ -4,10 +4,8 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import io.reactivex.Single
 import io.reactivex.android.plugins.RxAndroidPlugins
 import io.reactivex.schedulers.Schedulers
-import org.hamcrest.CoreMatchers
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.`is`
-import org.junit.Assert
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -18,8 +16,9 @@ import org.mockito.Mockito
 import org.mockito.Mockito.verify
 import org.mockito.junit.MockitoJUnitRunner
 import org.ybk.fooddiaryapp.TestUtils.getOrAwaitValue
-import org.ybk.fooddiaryapp.data.DiaryRepositoryImpl
-import org.ybk.fooddiaryapp.data.local.entity.PlaceRes
+import org.ybk.fooddiaryapp.data.repository.diary.DiaryRepositoryImpl
+import org.ybk.fooddiaryapp.data.model.place.PlaceRes
+import org.ybk.fooddiaryapp.presentation.search.SearchViewModel
 
 @RunWith(MockitoJUnitRunner::class)
 class SearchViewModelTest {

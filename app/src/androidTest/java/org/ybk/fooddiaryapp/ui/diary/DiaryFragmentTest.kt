@@ -10,12 +10,12 @@ import androidx.test.espresso.intent.matcher.IntentMatchers
 import androidx.test.espresso.intent.rule.IntentsTestRule
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.ybk.fooddiaryapp.R
+import org.ybk.fooddiaryapp.presentation.diary.DiaryFragment
 
 @RunWith(AndroidJUnit4::class)
 class DiaryFragmentTest {
@@ -30,7 +30,7 @@ class DiaryFragmentTest {
 
     @Test
     fun should_send_intent_to_AddDiaryActivity_if_FloatingActionButton_is_clicked() {
-        val targetAct = "org.ybk.fooddiaryapp.ui.adddiary.AddDiaryActivity"
+        val targetAct = "org.ybk.fooddiaryapp.presentation.adddiary.AddDiaryActivity"
         Thread.sleep(3000)
         onView(withId(R.id.lottieView)).perform(click())
         intended(IntentMatchers.hasComponent(targetAct))

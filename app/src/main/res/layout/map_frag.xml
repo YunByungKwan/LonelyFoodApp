@@ -7,11 +7,11 @@
 
         <variable
             name="fragment"
-            type="org.ybk.fooddiaryapp.ui.map.MapFragment" />
+            type="org.ybk.fooddiaryapp.presentation.map.MapFragment" />
 
         <variable
             name="viewmodel"
-            type="org.ybk.fooddiaryapp.ui.map.MapViewModel" />
+            type="org.ybk.fooddiaryapp.presentation.map.MapViewModel" />
 
     </data>
 
@@ -55,7 +55,7 @@
 
         </LinearLayout>
 
-        <org.ybk.fooddiaryapp.ui.map.ScrollAwareMapView
+        <org.ybk.fooddiaryapp.presentation.map.ScrollAwareMapView
             android:id="@+id/naver_map_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"

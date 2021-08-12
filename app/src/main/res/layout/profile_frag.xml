@@ -7,11 +7,11 @@
 
         <variable
             name="fragment"
-            type="org.ybk.fooddiaryapp.ui.profile.ProfileFragment" />
+            type="org.ybk.fooddiaryapp.presentation.profile.ProfileFragment" />
 
         <variable
             name="viewmodel"
-            type="org.ybk.fooddiaryapp.ui.profile.ProfileViewModel" />
+            type="org.ybk.fooddiaryapp.presentation.profile.ProfileViewModel" />
 
     </data>
 
@@ -67,6 +67,7 @@
                 android:layout_marginStart="@dimen/base_padding"
                 android:layout_marginTop="@dimen/dp_20"
                 android:orientation="horizontal"
+                android:gravity="center_vertical"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/profile_image_view">
 
@@ -84,7 +85,16 @@
                     android:layout_height="wrap_content"
                     android:text="1"
                     android:textSize="15sp"
+                    android:layout_marginEnd="@dimen/base_padding"
                     app:getLevel="@{viewmodel.diaryList}"/>
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/no_diary_lottie_view"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/ic_run" />
 
             </LinearLayout>
 

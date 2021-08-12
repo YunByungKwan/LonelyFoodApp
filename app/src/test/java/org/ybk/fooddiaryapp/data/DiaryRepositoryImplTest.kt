@@ -1,13 +1,8 @@
 package org.ybk.fooddiaryapp.data
 
-import android.app.Activity
-import com.google.android.gms.tasks.OnFailureListener
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
-import io.reactivex.Flowable
 import io.reactivex.Single
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
@@ -17,10 +12,9 @@ import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.junit.MockitoJUnitRunner
-import org.ybk.fooddiaryapp.data.local.entity.DataResponse
-import org.ybk.fooddiaryapp.data.local.entity.Diary
-import java.lang.Exception
-import java.util.concurrent.Executor
+import org.ybk.fooddiaryapp.data.model.etc.DataResponse
+import org.ybk.fooddiaryapp.data.model.diary.Diary
+import org.ybk.fooddiaryapp.data.repository.diary.DiaryRepositoryImpl
 
 @RunWith(MockitoJUnitRunner::class)
 class DiaryRepositoryImplTest {

@@ -7,7 +7,7 @@
 
         <variable
             name="placeItem"
-            type="org.ybk.fooddiaryapp.data.local.entity.Place" />
+            type="org.ybk.fooddiaryapp.data.model.place.Place" />
 
     </data>
 

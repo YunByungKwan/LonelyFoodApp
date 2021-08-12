@@ -1,20 +1,15 @@
 package org.ybk.fooddiaryapp.ui.main
 
-import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.intent.rule.IntentsTestRule
 import androidx.test.espresso.matcher.ViewMatchers.*
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.runner.AndroidJUnit4
 import org.junit.Assert.*
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.ybk.fooddiaryapp.R
-import org.ybk.fooddiaryapp.ui.adddiary.AddDiaryActivity
-import java.util.regex.Pattern.matches
+import org.ybk.fooddiaryapp.presentation.MainActivity
 
 @RunWith(AndroidJUnit4::class)
 class MainActivityTest {

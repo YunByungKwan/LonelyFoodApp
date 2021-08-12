@@ -5,27 +5,40 @@
 
     <fragment
         android:id="@+id/eatenFoodFragment"
-        android:name="org.ybk.fooddiaryapp.ui.diary.DiaryFragment"
-        android:label="고독한 미식가" />
+        android:name="org.ybk.fooddiaryapp.presentation.diary.DiaryFragment"
+        android:label="고독한 미식가" >
+        <action
+            android:id="@+id/action_diaryFrag_to_addDiaryFrag"
+            app:destination="@id/addDiaryFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addDiaryFragment"
+        android:name="org.ybk.fooddiaryapp.presentation.adddiary.AddDiaryFragment"
+        android:label="일기 작성" >
+        <action
+            android:id="@+id/action_addDiaryFrag_to_diaryFrag"
+            app:popUpTo="@id/eatenFoodFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/shareFoodFragment"
-        android:name="org.ybk.fooddiaryapp.ui.share.ShareFragment"
+        android:name="org.ybk.fooddiaryapp.presentation.share.ShareFragment"
         android:label="맛집 추천" />
 
     <fragment
         android:id="@+id/foodMapFragment"
-        android:name="org.ybk.fooddiaryapp.ui.map.MapFragment"
+        android:name="org.ybk.fooddiaryapp.presentation.map.MapFragment"
         android:label="맛집 지도" />
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="org.ybk.fooddiaryapp.ui.profile.ProfileFragment"
+        android:name="org.ybk.fooddiaryapp.presentation.profile.ProfileFragment"
         android:label="프로필" />
 
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="org.ybk.fooddiaryapp.ui.settings.SettingsFragment"
+        android:name="org.ybk.fooddiaryapp.presentation.settings.SettingsFragment"
         android:label="설정" >
         <action
             android:id="@+id/action_settingsFragment_to_openSourceFragment"
@@ -35,7 +48,7 @@
 
     <fragment
         android:id="@+id/openSourceFragment"
-        android:name="org.ybk.fooddiaryapp.ui.settings.OpenSourceFragment"
+        android:name="org.ybk.fooddiaryapp.presentation.settings.OpenSourceFragment"
         android:label="오픈 소스" />
 
 </navigation>

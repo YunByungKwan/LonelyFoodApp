@@ -5,7 +5,6 @@ import com.google.firebase.database.Query
 import io.reactivex.Single
 import io.reactivex.android.plugins.RxAndroidPlugins
 import io.reactivex.schedulers.Schedulers
-import org.hamcrest.CoreMatchers
 import org.hamcrest.Matchers.`is`
 import org.junit.Assert.assertThat
 import org.junit.Before
@@ -18,9 +17,10 @@ import org.mockito.Mockito
 import org.mockito.Mockito.times
 import org.mockito.junit.MockitoJUnitRunner
 import org.ybk.fooddiaryapp.TestUtils.getOrAwaitValue
-import org.ybk.fooddiaryapp.data.DiaryRepositoryImpl
-import org.ybk.fooddiaryapp.data.local.entity.DataResponse
-import org.ybk.fooddiaryapp.data.local.entity.Diary
+import org.ybk.fooddiaryapp.data.repository.diary.DiaryRepositoryImpl
+import org.ybk.fooddiaryapp.data.model.etc.DataResponse
+import org.ybk.fooddiaryapp.data.model.diary.Diary
+import org.ybk.fooddiaryapp.presentation.share.ShareViewModel
 import org.ybk.fooddiaryapp.util.Constants
 
 @RunWith(MockitoJUnitRunner::class)

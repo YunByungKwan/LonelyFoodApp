@@ -11,11 +11,11 @@
 
         <variable
             name="activity"
-            type="org.ybk.fooddiaryapp.ui.editdiary.EditDiaryActivity" />
+            type="org.ybk.fooddiaryapp.presentation.editdiary.EditDiaryActivity" />
 
         <variable
             name="viewmodel"
-            type="org.ybk.fooddiaryapp.ui.editdiary.EditDiaryViewModel" />
+            type="org.ybk.fooddiaryapp.presentation.editdiary.EditDiaryViewModel" />
 
     </data>
 

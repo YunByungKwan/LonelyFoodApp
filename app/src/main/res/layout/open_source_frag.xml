@@ -6,7 +6,7 @@
 
         <variable
             name="fragment"
-            type="org.ybk.fooddiaryapp.ui.settings.OpenSourceFragment" />
+            type="org.ybk.fooddiaryapp.presentation.settings.OpenSourceFragment" />
 
     </data>
 

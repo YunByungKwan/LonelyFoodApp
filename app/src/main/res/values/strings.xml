@@ -111,7 +111,7 @@
     <string name="marker_suffix">에 다녀갔어요!</string>
 
     <!-- share_food_frag.xml -->
-    <string name="no_share_diary_text">고독하구만...:(</string>
+    <string name="no_share_diary_text">오늘 갔던 맛집을\n다른 미식가들에게도 추천해 주세요!</string>
 
     <string name="clipboard">클립보드에 복사되었습니다</string>
 

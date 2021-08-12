@@ -7,7 +7,7 @@
 
         <variable
             name="foodImageItem"
-            type="org.ybk.fooddiaryapp.data.local.entity.FoodImage" />
+            type="org.ybk.fooddiaryapp.data.model.diary.FoodImage" />
 
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout

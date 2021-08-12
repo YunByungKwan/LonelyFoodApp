@@ -11,11 +11,11 @@
 
         <variable
             name="activity"
-            type="org.ybk.fooddiaryapp.ui.adddiary.AddDiaryActivity" />
+            type="org.ybk.fooddiaryapp.presentation.adddiary.AddDiaryActivity" />
 
         <variable
             name="viewmodel"
-            type="org.ybk.fooddiaryapp.ui.adddiary.AddDiaryViewModel" />
+            type="org.ybk.fooddiaryapp.presentation.adddiary.AddDiaryViewModel" />
     </data>
 
     <androidx.core.widget.NestedScrollView

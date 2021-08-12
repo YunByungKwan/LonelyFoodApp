@@ -16,9 +16,10 @@ import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.junit.MockitoJUnitRunner
 import org.ybk.fooddiaryapp.TestUtils.getOrAwaitValue
-import org.ybk.fooddiaryapp.data.DiaryRepositoryImpl
-import org.ybk.fooddiaryapp.data.local.entity.DataResponse
-import org.ybk.fooddiaryapp.data.local.entity.Diary
+import org.ybk.fooddiaryapp.data.repository.diary.DiaryRepositoryImpl
+import org.ybk.fooddiaryapp.data.model.etc.DataResponse
+import org.ybk.fooddiaryapp.data.model.diary.Diary
+import org.ybk.fooddiaryapp.presentation.map.MapViewModel
 
 @RunWith(MockitoJUnitRunner::class)
 class MapViewModelTest {

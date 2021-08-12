@@ -7,11 +7,11 @@
 
         <variable
             name="fragment"
-            type="org.ybk.fooddiaryapp.ui.settings.SettingsFragment" />
+            type="org.ybk.fooddiaryapp.presentation.settings.SettingsFragment" />
 
         <variable
             name="viewmodel"
-            type="org.ybk.fooddiaryapp.ui.settings.SettingsViewModel" />
+            type="org.ybk.fooddiaryapp.presentation.settings.SettingsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

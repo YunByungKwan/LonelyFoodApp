@@ -10,11 +10,11 @@
 
         <variable
             name="fragment"
-            type="org.ybk.fooddiaryapp.ui.diary.DiaryFragment" />
+            type="org.ybk.fooddiaryapp.presentation.diary.DiaryFragment" />
 
         <variable
             name="viewModel"
-            type="org.ybk.fooddiaryapp.ui.diary.DiaryViewModel" />
+            type="org.ybk.fooddiaryapp.presentation.diary.DiaryViewModel" />
 
     </data>
 
