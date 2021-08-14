@@ -10,6 +10,13 @@
         <action
             android:id="@+id/action_diaryFrag_to_addDiaryFrag"
             app:destination="@id/addDiaryFragment" />
+        <action
+            android:id="@+id/action_diaryFrag_to_editDiaryFrag"
+            app:destination="@id/editDiaryFragment">
+            <argument
+                android:name="registerTime"
+                android:defaultValue="" />
+        </action>
     </fragment>
 
     <fragment
@@ -25,6 +32,11 @@
         android:id="@+id/shareFoodFragment"
         android:name="org.ybk.fooddiaryapp.presentation.share.ShareFragment"
         android:label="맛집 추천" />
+
+    <fragment
+        android:id="@+id/editDiaryFragment"
+        android:name="org.ybk.fooddiaryapp.presentation.editdiary.EditDiaryFragment"
+        android:label="일기 수정" />
 
     <fragment
         android:id="@+id/foodMapFragment"

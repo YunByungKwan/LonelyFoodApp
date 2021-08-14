@@ -48,11 +48,11 @@ suspend fun Query.execute(): DatabaseResponse = suspendCoroutine { continuation 
 
 suspend fun Task<DocumentSnapshot>.executeDocument(): DocumentResponse = suspendCoroutine { continuation ->
     Log.d("TAG2", "Task<DocumentSnapshot>.executeDocument()")
-    val onSuccessListener = OnSuccessListener<DocumentSnapshot> {
-
+    val onSuccessListener = OnSuccessListener<DocumentSnapshot> { snapshot ->
+        continuation.resume(DocumentResponse.Success(snapshot))
     }
-    val onFailureListener = OnFailureListener {
-
+    val onFailureListener = OnFailureListener { e ->
+        continuation.resume(DocumentResponse.Failure(e))
     }
     addOnSuccessListener(onSuccessListener)
     addOnFailureListener(onFailureListener)

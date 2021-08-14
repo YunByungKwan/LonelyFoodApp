@@ -13,6 +13,7 @@ import com.google.firebase.storage.UploadTask
 import io.reactivex.Observable
 import io.reactivex.Single
 import org.ybk.fooddiaryapp.data.execute
+import org.ybk.fooddiaryapp.data.executeDocument
 import org.ybk.fooddiaryapp.data.executeQuery
 import org.ybk.fooddiaryapp.data.model.diary.Diary
 import org.ybk.fooddiaryapp.data.model.diary.FoodImage
@@ -43,6 +44,26 @@ class DiaryRemoteDataSourceImpl @Inject constructor(
             }
             is TaskResponse.Failure -> {
                 TaskResponse.Failure(response.e)
+            }
+        }
+    }
+
+    override suspend fun getDiaryFromFirestoreDB(
+        email: String, registerTime: String
+    ): DocumentResponse {
+        val task = mFirestore.collection(Constants.ROOT)
+            .document(email)
+            .collection(Constants.DIARY)
+            .document(registerTime)
+            .get()
+
+        val response = task.executeDocument()
+        return when(response) {
+            is DocumentResponse.Success -> {
+                DocumentResponse.Success(response.snapshot)
+            }
+            is DocumentResponse.Failure -> {
+                DocumentResponse.Failure(response.e)
             }
         }
     }
@@ -180,6 +201,10 @@ class DiaryRemoteDataSourceImpl @Inject constructor(
                 QueryResponse.Failure(response.e)
             }
         }
+    }
+
+    fun deleteFoodImageFromFirebaseStorage() {
+
     }
     /***/
 

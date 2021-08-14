@@ -18,6 +18,8 @@ interface DiaryRemoteDataSource {
     /***/
     suspend fun addDiaryToFirestoreDB(diary: Diary): TaskResponse
 
+    suspend fun getDiaryFromFirestoreDB(email: String, registerTime: String): DocumentResponse
+
     suspend fun getDiaryListFromFirestoreDB(email: String): QueryResponse
 
     suspend fun getOpenDiaryListFromFirestoreDB(open: String): QueryResponse

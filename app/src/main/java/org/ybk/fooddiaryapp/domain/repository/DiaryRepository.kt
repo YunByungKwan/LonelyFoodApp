@@ -19,6 +19,8 @@ interface DiaryRepository {
     /***/
     suspend fun addDiaryToFirestoreDB(diary: Diary): TaskResponse
 
+    suspend fun getDiaryFromFirestoreDB(email: String, registerTime: String): DocumentResponse
+
     suspend fun getDiaryListFromFirestoreDB(email: String): QueryResponse
 
     suspend fun addDiaryToRecommendList(diary: Diary): TaskResponse

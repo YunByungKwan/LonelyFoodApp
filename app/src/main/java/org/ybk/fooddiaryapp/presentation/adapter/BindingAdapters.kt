@@ -13,9 +13,12 @@ object BindingAdapters {
         recyclerView: RecyclerView,
         imageItems: List<FoodImage>) {
         if(recyclerView.adapter == null) {
-            recyclerView.adapter = FoodImageAdapter(imageItems as ArrayList<FoodImage>)
+            recyclerView.adapter = FoodImageAdapter()
         }
         val foodImageAdapter = recyclerView.adapter as FoodImageAdapter
+        imageItems?.let { list ->
+            foodImageAdapter.submitList(list)
+        }
     }
 
     @JvmStatic

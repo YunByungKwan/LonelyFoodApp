@@ -9,15 +9,18 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.database.FirebaseDatabase
 import org.ybk.fooddiaryapp.R
 import org.ybk.fooddiaryapp.data.model.diary.Diary
 import org.ybk.fooddiaryapp.databinding.UpdateRemoveDialogBinding
 import org.ybk.fooddiaryapp.presentation.adddiary.AddDiaryViewModel
 import org.ybk.fooddiaryapp.presentation.diary.DiaryFragment
+import org.ybk.fooddiaryapp.presentation.diary.DiaryFragmentDirections
 import org.ybk.fooddiaryapp.presentation.editdiary.EditDiaryActivity
 import org.ybk.fooddiaryapp.util.Constants
 import org.ybk.fooddiaryapp.util.MyApplication
@@ -106,12 +109,10 @@ class DotDialog(val diary: Diary): DialogFragment() {
     }
 
     fun onClickEditButton() {
-        val intent = Intent(activity, EditDiaryActivity::class.java)
-        intent.putExtra(Constants.DIARY_EMAIL, diary.email)
-        intent.putExtra(Constants.DIARY_REGISTER_TIME, diary.registerTime)
-        startActivity(intent)
-
         parentDialog.dismiss()
+
+        val bundle = bundleOf("registerTime" to diary.registerTime)
+        findNavController().navigate(R.id.action_diaryFrag_to_editDiaryFrag, bundle)
     }
 
     fun onClickRemoveButton() {

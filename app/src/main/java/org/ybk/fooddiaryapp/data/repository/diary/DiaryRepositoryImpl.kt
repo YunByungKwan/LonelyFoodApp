@@ -28,6 +28,12 @@ class DiaryRepositoryImpl(
         Log.d("TAG2", "DiaryRepositoryImpl - addDiaryToFirestoreDB")
         return diaryRemoteDataSource.addDiaryToFirestoreDB(diary)
     }
+    override suspend fun getDiaryFromFirestoreDB(
+        email: String, registerTime: String
+    ): DocumentResponse {
+        Log.d("TAG2", "DiaryRepositoryImpl - getDiaryFromFirestoreDB")
+        return diaryRemoteDataSource.getDiaryFromFirestoreDB(email, registerTime)
+    }
     override suspend fun getDiaryListFromFirestoreDB(email: String): QueryResponse {
         Log.d("TAG2", "DiaryRepositoryImpl - getDiaryListFromFirestoreDB")
         return diaryRemoteDataSource.getDiaryListFromFirestoreDB(email)

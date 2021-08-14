@@ -67,7 +67,7 @@ class EditDiaryActivity : AppCompatActivity() {
         intent.let {
             val registerTime = it.getStringExtra(Constants.DIARY_REGISTER_TIME)
             val id = "${Utils.convertDotToDash(email!!)}-${registerTime}"
-            editDiaryViewModel.getOriginalDiary2(id)
+            // editDiaryViewModel.getOriginalDiary2(id)
         }
 
         dialog = Utils.loadingDialog(this)
@@ -83,8 +83,8 @@ class EditDiaryActivity : AppCompatActivity() {
             editDiaryViewModel.imageList.postValue(tempList)
         })
 
-        editDiaryViewModel.imageList.observe(this, androidx.lifecycle.Observer { imageList ->
-            val foodImageAdapter = FoodImageAdapter(imageList)
+        editDiaryViewModel.imageList.observe(this, { imageList ->
+            val foodImageAdapter = FoodImageAdapter()
             image_recycler_view.adapter = foodImageAdapter
             image_recycler_view.layoutManager = LinearLayoutManager(this,
                 LinearLayoutManager.HORIZONTAL, false)
@@ -210,7 +210,7 @@ class EditDiaryActivity : AppCompatActivity() {
         newDiary!!.contents = newContents
         newDiary!!.updateTime = updateTime
         newDiary!!.imageList = editDiaryViewModel.imageList.value!!
-        editDiaryViewModel.editDiary(newDiary!!)
+        // editDiaryViewModel.editDiary(newDiary!!)
     }
 
     private fun isAddedMaxImageCount(): Boolean {
