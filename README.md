@@ -4,7 +4,7 @@
 <br>
 
 ## Skills
-`Android Jetpack`(`ViewModel`, `LiveData`, `Room`, `DataBinding`, `Navigation`), `Firebase`(`Authentication`, `Realtime Database`, `Storage`), `Retrofit`, `RxJava`, `Dagger`, `Glide`, `Espresso`, `Mockito`, `JUnit4`, `hamcrest`<br>
+`Android Jetpack`(`ViewModel`, `LiveData`, `Room`, `DataBinding`, `Navigation`), `Firebase`(`Authentication`, `Realtime Database`, `Storage`), `Retrofit2`, `Coroutine`, `Dagger2`, `Glide`, `Espresso`, `Mockito`, `JUnit4`, `hamcrest`<br>
 <br>
 
 ### Process
