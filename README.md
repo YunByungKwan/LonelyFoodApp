@@ -1,21 +1,40 @@
-# 고독한 미식가 
-고독한 미식가는 위치, 텍스트, 이미지 기반의 다이어리 앱입니다. ([Google Play Store](https://play.google.com/store/apps/details?id=org.ybk.fooddiaryapp))<br>
-인스타그램에 음식 사진만 올리는 사람들을 보고 개발하게 되었습니다.<br>
+# 고독한 미식가
 
-<br>
-
-## Skills
-`Android Jetpack`(`ViewModel`, `LiveData`, `Room`, `DataBinding`, `Navigation`), `Firebase`(`Authentication`, `Firestore Database`, `Storage`), `Retrofit2`, `Coroutine`, `Dagger Hilt`, `Glide`, `Espresso`, `Mockito`, `JUnit5`, `hamcrest`<br>
-
-<br>
-
-## Features
-- Clean Architecture 기반 MVVM 패턴
+- `고독한 미식가`는 위치, 텍스트, 이미지 기반의 다이어리 앱입니다.
+- 인스타그램에 음식 사진만 올리는 사람들을 보고 개발하게 되었습니다.
+- :convenience_store: [Google Play Store](https://play.google.com/store/apps/details?id=org.ybk.fooddiaryapp)
 
 <br>
 
 ## Preview
 <img src="https://user-images.githubusercontent.com/51109517/113472872-ddb16200-94a0-11eb-8731-9abdeda63754.gif" width=200 height=400/> <img src="https://user-images.githubusercontent.com/51109517/113472937-3ed93580-94a1-11eb-8ac1-91a2ae00452c.gif" width=200 height=400/> <img src="https://user-images.githubusercontent.com/51109517/113472941-43055300-94a1-11eb-901c-bb2d3a87e622.gif" width=200 height=400/> <img src="https://user-images.githubusercontent.com/51109517/113472940-413b8f80-94a1-11eb-8dd1-148084c23445.gif" width=200 height=400/>
+
+<br>
+
+## Skills
+- `Android Jetpack`
+  - `ViewModel`
+  - `LiveData`
+  - `Room`
+  - `DataBinding`
+  - `Navigation`
+- `Firebase`
+  - `Authentication`
+  - `Firestore Database`
+  - `Storage`
+- `Retrofit2`
+- `Coroutines`
+- `Dagger Hilt`
+- `Glide`
+- `Espresso`
+- `Mockito`
+- `JUnit5`
+- `hamcrest`
+
+<br>
+
+## Features
+- Clean Architecture 기반 MVVM 패턴
 
 <br>
 
