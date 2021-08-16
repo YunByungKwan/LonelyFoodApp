@@ -32,11 +32,154 @@
 <img src="https://user-images.githubusercontent.com/51109517/113472872-ddb16200-94a0-11eb-8731-9abdeda63754.gif" width=200 height=400/> <img src="https://user-images.githubusercontent.com/51109517/113472937-3ed93580-94a1-11eb-8ac1-91a2ae00452c.gif" width=200 height=400/> <img src="https://user-images.githubusercontent.com/51109517/113472941-43055300-94a1-11eb-901c-bb2d3a87e622.gif" width=200 height=400/> <img src="https://user-images.githubusercontent.com/51109517/113472940-413b8f80-94a1-11eb-8dd1-148084c23445.gif" width=200 height=400/>
 <br>
 
-### Architecture
-<img src="https://user-images.githubusercontent.com/51109517/121285168-de3efc80-c918-11eb-8517-4a9856e86ff9.png" width=700 height=400/>
-<br>
+### Project Structure
 
-### Dagger Graph
-<img src="https://user-images.githubusercontent.com/51109517/121352793-2c2f2100-c968-11eb-80dd-d82ba2bb8aab.png" width=700 height=400/>
-<br>
+📦main<br>
+ ┣ 📂assets<br>
+ ┃ ┗ 📜openSource.html<br>
+ ┣ 📂java<br>
+ ┃ ┗ 📂org<br>
+ ┃ ┃ ┗ 📂ybk<br>
+ ┃ ┃ ┃ ┗ 📂fooddiaryapp<br>
+ ┃ ┃ ┃ ┃ ┣ 📂base<br>
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜BaseViewModel.kt<br>
+ ┃ ┃ ┃ ┃ ┣ 📂data<br>
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂api<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜NaverApiService.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂db<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DiaryDao.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜DiaryDatabase.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂model<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂diary<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜Diary.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜FoodImage.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂etc<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DataConverter.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DataResponse.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜EventResponse.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜Response.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂place<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜Place.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜PlaceResponse.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂repository<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂diary<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂datasource<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DiaryLocalDataSource.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜DiaryRemoteDataSource.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂datasourceimpl<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DiaryLocalDataSourceImpl.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜DiaryRemoteDataSourceImpl.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜DiaryRepositoryImpl.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂place<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂datasource<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜PlaceRemoteDataSource.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂datasourceimpl<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜PlaceRemoteDataSourceImpl.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜PlaceRepositoryImpl.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂profile<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂datasource<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜ProfileRemoteDataSource.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂datasourceimpl<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜ProfileRemoteDataSourceImpl.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜ProfileRepositoryImpl.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂user<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂datasource<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜UserRemoteDataSource.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂datasourceimpl<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜UserRemoteDataSourceImpl.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜UserRepositoryImpl.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜FirebaseExtension.kt<br>
+ ┃ ┃ ┃ ┃ ┣ 📂domain<br>
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂repository<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DiaryRepository.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜PlaceRepository.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜ProfileRepository.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜UserRepository.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂usecase<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜AddDiaryUseCase.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜AddProfileImagePathUseCase.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DeleteDiaryUseCase.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜GetDiaryListUseCase.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜GetDiaryUseCase.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜GetOpenDiaryListUseCase.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜GetPlaceListUseCase.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜GetProfileImageUseCase.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜RecommendRestaurantUseCase.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜SignInFirebaseUseCase.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜UpdateDiaryToOpenUseCase.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜UpdateDiaryUseCase.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜UploadFoodImageUseCase.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜UploadProfileImageUseCase.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜WithDrawFirebaseUseCase.kt<br>
+ ┃ ┃ ┃ ┃ ┣ 📂presentation<br>
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂adapter<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜BindingAdapters.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜FoodImageAdapter.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜FoodImagePagerAdapter.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂adddiary<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜AddDiaryBindingAdapter.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜AddDiaryFragment.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜AddDiaryViewModel.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂di<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DatabaseModule.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DispatcherModule.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜NetworkModule.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜RemoteDataModule.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜RepositoryModule.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜UseCaseModule.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂dialog<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DetailDialog.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DotDialog.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DotDialogBindingAdapter.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DotDialogViewModel.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜ShareDialog.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜ShareDialogBindingAdapter.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂diary<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DiaryBindingAdapter.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DiaryFragment.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DiaryListAdapter.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜DiaryViewModel.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂editdiary<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜EditDiaryFragment.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜EditDiaryViewModel.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂login<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜LoginActivity.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜LoginViewModel.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂map<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜MapFragment.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜MapViewModel.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜ScrollAwareMapView.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂profile<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜ProfileBindingAdapter.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜ProfileFragment.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜ProfileViewModel.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜RecentLocationAdapter.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂search<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜SearchActivity.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜SearchBindingAdapter.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜SearchResultAdapter.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜SearchViewModel.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂settings<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜OpenSourceFragment.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜SettingsFragment.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜SettingsViewModel.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂share<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜ShareBindingAdapter.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜ShareFoodAdapter.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜ShareFragment.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜ShareViewModel.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜MainActivity.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜SplashActivity.kt<br>
+ ┃ ┃ ┃ ┃ ┗ 📂util<br>
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂compat<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜ImageCompat.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜NetworkCompat.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜PermissionCompat.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜BackPressCloseHandler.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜Const.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜Constants.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜MyApplication.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜Status.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜Utils.kt<br>
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜ViewExt.kt<br>
 
