@@ -7,12 +7,6 @@
 `Android Jetpack`(`ViewModel`, `LiveData`, `Room`, `DataBinding`, `Navigation`), `Firebase`(`Authentication`, `Firestore Database`, `Storage`), `Retrofit2`, `Coroutine`, `Dagger Hilt`, `Glide`, `Espresso`, `Mockito`, `JUnit5`, `hamcrest`<br>
 <br>
 
-### Process
-- [Google & Facebook 로그인](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5BProcess%5D-Google-&-Facebook-%EB%A1%9C%EA%B7%B8%EC%9D%B8)
-- [일기 작성](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5BProcess%5D-%EC%9D%BC%EA%B8%B0-%EC%9E%91%EC%84%B1)
-- [검색 기능](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5BProcess%5D-%EA%B2%80%EC%83%89-%EA%B8%B0%EB%8A%A5)
-<br>
-
 ### :fire: Trouble Shooting
 - [[21.07.08] 이미지 샘플링을 통해 이미지 업로드 시간 3초 단축](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B2021.07.08%5D-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%83%98%ED%94%8C%EB%A7%81%EC%9D%84-%ED%86%B5%ED%95%B4-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%97%85%EB%A1%9C%EB%93%9C-%EC%8B%9C%EA%B0%84-3%EC%B4%88-%EB%8B%A8%EC%B6%95)
 - [[21.06.14] Firebase Storage의 업로드 속도가 느린 이유](https://github.com/YunByungKwan/LonelyFoodApp/wiki/%5B21.06.14%5D-Firebase-Storage%EC%9D%98-%EC%97%85%EB%A1%9C%EB%93%9C-%EC%86%8D%EB%8F%84%EA%B0%80-%EB%8A%90%EB%A6%B0-%EC%9D%B4%EC%9C%A0)
