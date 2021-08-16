@@ -15,10 +15,10 @@ import org.ybk.fooddiaryapp.data.repository.diary.datasource.DiaryRemoteDataSour
 import org.ybk.fooddiaryapp.domain.repository.DiaryRepository
 import org.ybk.fooddiaryapp.util.Status
 import org.ybk.fooddiaryapp.util.Utils
+import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
-class DiaryRepositoryImpl(
+class DiaryRepositoryImpl @Inject constructor(
     private val diaryLocalDataSource: DiaryLocalDataSource,
     private val diaryRemoteDataSource: DiaryRemoteDataSource
 ): DiaryRepository {

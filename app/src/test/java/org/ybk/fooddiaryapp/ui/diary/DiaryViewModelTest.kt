@@ -25,76 +25,76 @@ import org.ybk.fooddiaryapp.presentation.diary.DiaryViewModel
 
 @RunWith(MockitoJUnitRunner::class)
 class DiaryViewModelTest {
-    @get:Rule
-    var instantExecutorRule: TestRule = InstantTaskExecutorRule()
-
-    @Mock
-    private lateinit var repo: DiaryRepositoryImpl
-
-    private lateinit var vm: DiaryViewModel
-
-    private lateinit var email: String
-    private lateinit var localRes: Single<List<Diary>>
-    private lateinit var diaryList: ArrayList<Diary>
-    private lateinit var diary: Diary
-
-    @Before
-    fun set_up() {
-        RxAndroidPlugins.setInitMainThreadSchedulerHandler{
-            Schedulers.trampoline() }
-        vm = DiaryViewModel(repo)
-        email = "ybg1485@gmail.com"
-        diaryList = ArrayList<Diary>()
-        diary = Diary()
-        localRes = Single.just(diaryList)
-
-        mocking()
-    }
-
-    private fun mocking() {
-        Mockito.`when`(repo.getDiaryAll(email))
-            .thenReturn(DataResponse(localRes, null))
-        Mockito.`when`(repo.insertDiaryToLocalDB(diary))
-            .thenReturn(Completable.complete())
-    }
-
-    @Test
-    fun testIfLiveDataHasValue() {
-        vm.getDiaryAll(email)
-        vm.diaryList.getOrAwaitValue()
-        Assert.assertThat(vm.diaryList.value, CoreMatchers.`is`(diaryList))
-    }
-
-    @Test
-    fun testIfRepoGetDiaryAllIsCalled_2_times() {
-        vm.getDiaryAll(email)
-        verify(repo, times(2)).getDiaryAll(email)
-    }
-
-    @Test
-    fun testGetDiaryAll_local() {
-        vm.getDiaryAll(email)
-        repo.getDiaryAll(email)
-            .getLocalResponse()!!
-            .test()
-            .assertSubscribed()
-            .assertComplete()
-            .assertNoErrors()
-    }
-
-    @Test
-    fun testIfRepoInsertDiaryToLocalDBIsCalled() {
-        vm.insertDiaryToLocalDB(diary)
-        verify(repo).insertDiaryToLocalDB(diary)
-    }
-
-    @Test
-    fun testInsertDiaryToLocalDB() {
-        vm.insertDiaryToLocalDB(diary)
-        repo.insertDiaryToLocalDB(diary)
-            .test()
-            .assertSubscribed()
-            .assertComplete()
-            .assertNoErrors()
-    }
+//    @get:Rule
+//    var instantExecutorRule: TestRule = InstantTaskExecutorRule()
+//
+//    @Mock
+//    private lateinit var repo: DiaryRepositoryImpl
+//
+//    private lateinit var vm: DiaryViewModel
+//
+//    private lateinit var email: String
+//    private lateinit var localRes: Single<List<Diary>>
+//    private lateinit var diaryList: ArrayList<Diary>
+//    private lateinit var diary: Diary
+//
+//    @Before
+//    fun set_up() {
+//        RxAndroidPlugins.setInitMainThreadSchedulerHandler{
+//            Schedulers.trampoline() }
+//        vm = DiaryViewModel(repo)
+//        email = "ybg1485@gmail.com"
+//        diaryList = ArrayList<Diary>()
+//        diary = Diary()
+//        localRes = Single.just(diaryList)
+//
+//        mocking()
+//    }
+//
+//    private fun mocking() {
+//        Mockito.`when`(repo.getDiaryAll(email))
+//            .thenReturn(DataResponse(localRes, null))
+//        Mockito.`when`(repo.insertDiaryToLocalDB(diary))
+//            .thenReturn(Completable.complete())
+//    }
+//
+//    @Test
+//    fun testIfLiveDataHasValue() {
+//        vm.getDiaryAll(email)
+//        vm.diaryList.getOrAwaitValue()
+//        Assert.assertThat(vm.diaryList.value, CoreMatchers.`is`(diaryList))
+//    }
+//
+//    @Test
+//    fun testIfRepoGetDiaryAllIsCalled_2_times() {
+//        vm.getDiaryAll(email)
+//        verify(repo, times(2)).getDiaryAll(email)
+//    }
+//
+//    @Test
+//    fun testGetDiaryAll_local() {
+//        vm.getDiaryAll(email)
+//        repo.getDiaryAll(email)
+//            .getLocalResponse()!!
+//            .test()
+//            .assertSubscribed()
+//            .assertComplete()
+//            .assertNoErrors()
+//    }
+//
+//    @Test
+//    fun testIfRepoInsertDiaryToLocalDBIsCalled() {
+//        vm.insertDiaryToLocalDB(diary)
+//        verify(repo).insertDiaryToLocalDB(diary)
+//    }
+//
+//    @Test
+//    fun testInsertDiaryToLocalDB() {
+//        vm.insertDiaryToLocalDB(diary)
+//        repo.insertDiaryToLocalDB(diary)
+//            .test()
+//            .assertSubscribed()
+//            .assertComplete()
+//            .assertNoErrors()
+//    }
 }

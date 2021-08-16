@@ -8,13 +8,11 @@ import org.ybk.fooddiaryapp.data.model.etc.EventResponse
 import org.ybk.fooddiaryapp.data.model.etc.ValueEventResponse
 import org.ybk.fooddiaryapp.data.repository.profile.datasource.ProfileRemoteDataSource
 import org.ybk.fooddiaryapp.domain.repository.ProfileRepository
+import javax.inject.Inject
 
-class ProfileRepositoryImpl(
+class ProfileRepositoryImpl @Inject constructor(
     private val profileRemoteDataSource: ProfileRemoteDataSource
 ): ProfileRepository {
-//    override fun getProfileImage(email: String): Single<DatabaseReference> {
-//        return profileRemoteDataSource.getProfileImage(email)
-//}
     override suspend fun getProfileImage(email: String): ValueEventResponse {
     return profileRemoteDataSource.getProfileImage(email)
 }

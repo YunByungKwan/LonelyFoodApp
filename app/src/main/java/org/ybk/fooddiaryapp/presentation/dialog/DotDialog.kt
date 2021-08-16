@@ -6,50 +6,33 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
-import androidx.lifecycle.Observer
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.database.FirebaseDatabase
+import dagger.hilt.android.AndroidEntryPoint
 import org.ybk.fooddiaryapp.R
 import org.ybk.fooddiaryapp.data.model.diary.Diary
 import org.ybk.fooddiaryapp.databinding.UpdateRemoveDialogBinding
-import org.ybk.fooddiaryapp.presentation.adddiary.AddDiaryViewModel
 import org.ybk.fooddiaryapp.presentation.diary.DiaryFragment
-import org.ybk.fooddiaryapp.presentation.diary.DiaryFragmentDirections
-import org.ybk.fooddiaryapp.presentation.editdiary.EditDiaryActivity
 import org.ybk.fooddiaryapp.util.Constants
 import org.ybk.fooddiaryapp.util.MyApplication
 import org.ybk.fooddiaryapp.util.Status
 import org.ybk.fooddiaryapp.util.Utils
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class DotDialog(val diary: Diary): DialogFragment() {
 
-    @Inject
-    lateinit var viewModelFactory: DotDialogViewModelFactory
-
-    lateinit var dotDialogViewModel: DotDialogViewModel
+    private val dotDialogViewModel: DotDialogViewModel by viewModels()
 
     private lateinit var binding: UpdateRemoveDialogBinding
     private lateinit var parentDialog: AlertDialog
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-
-        (requireActivity().applicationContext as MyApplication)
-            .appComponent.dotDialogComponent().create().inject(this)
-    }
-
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         Log.d("TAG2", "onCreateDialog")
-
-        dotDialogViewModel = ViewModelProvider(
-            this, viewModelFactory).get(DotDialogViewModel::class.java)
 
         binding = UpdateRemoveDialogBinding.inflate(layoutInflater).apply {
             diaryItem = diary

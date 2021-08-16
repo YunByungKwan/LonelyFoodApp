@@ -6,8 +6,9 @@ import com.google.firebase.auth.AuthResult
 import io.reactivex.Single
 import org.ybk.fooddiaryapp.data.repository.user.datasource.UserRemoteDataSource
 import org.ybk.fooddiaryapp.domain.repository.UserRepository
+import javax.inject.Inject
 
-class UserRepositoryImpl(
+class UserRepositoryImpl @Inject constructor(
     private val userRemoteDataSource: UserRemoteDataSource
 ): UserRepository {
     override suspend fun signInFirebaseWith(credential: AuthCredential): AuthResult? {

@@ -13,11 +13,13 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.facebook.login.LoginManager
 import com.google.firebase.auth.FirebaseAuth
 import com.theartofdev.edmodo.cropper.CropImage
+import dagger.hilt.android.AndroidEntryPoint
 import org.ybk.fooddiaryapp.R
 import org.ybk.fooddiaryapp.databinding.ProfileFragBinding
 import org.ybk.fooddiaryapp.presentation.login.LoginActivity
@@ -29,29 +31,18 @@ import org.ybk.fooddiaryapp.util.compat.ImageCompat
 import org.ybk.fooddiaryapp.util.compat.PermissionCompat
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class ProfileFragment : Fragment() {
 
-    @Inject
-    lateinit var viewModelFactory: ProfileViewModelFactory
-
-    lateinit var profileViewModel: ProfileViewModel
+    private val profileViewModel: ProfileViewModel by viewModels()
 
     private var dialog: Dialog? = null
     val email = FirebaseAuth.getInstance().currentUser?.email
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-
-        (requireActivity().applicationContext as MyApplication)
-            .appComponent.profileComponent().create().inject(this)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        profileViewModel = ViewModelProvider(
-            this, viewModelFactory).get(ProfileViewModel::class.java)
         val binding = DataBindingUtil.inflate<ProfileFragBinding>(
             inflater, R.layout.profile_frag, container, false).apply {
             fragment = this@ProfileFragment

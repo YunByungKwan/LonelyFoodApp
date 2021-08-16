@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.view.View" />
 
         <variable
             name="constants"
@@ -85,7 +86,8 @@
                 android:text="@string/delete_info"
                 android:textColor="@color/colorPrimary"
                 android:textStyle="bold"
-                android:visibility="gone"
+                android:visibility="@{viewmodel.imageList.size() > 0 ? View.VISIBLE : View.GONE}"
+                android:translationZ="90dp"
                 android:layout_marginStart="@dimen/base_padding"
                 app:layout_constraintBottom_toBottomOf="@+id/image_recycler_view"
                 app:layout_constraintStart_toStartOf="@+id/image_recycler_view"

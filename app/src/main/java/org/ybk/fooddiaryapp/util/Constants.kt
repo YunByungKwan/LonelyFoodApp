@@ -64,11 +64,6 @@ class Constants {
 
         const val FIRST = "First"
 
-        const val SEL_MARKER_TITLE = "title"
-        const val SEL_MARKER_ADDRESS = "address"
-        const val SEL_MARKER_LAT = "Lat"
-        const val SEL_MARKER_LNG = "Lng"
-
         const val PICK_FROM_CAMERA = 0
         const val PICK_FROM_GALLERY = 1
         const val CROP_FROM_CAMERA = 2

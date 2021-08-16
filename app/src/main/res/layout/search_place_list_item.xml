@@ -4,11 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="placeItem"
             type="org.ybk.fooddiaryapp.data.model.place.Place" />
-
     </data>
 
     <LinearLayout
@@ -41,7 +39,7 @@
                     android:id="@+id/place_name_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="모도우"
+                    android:text="@{placeItem.title}"
                     android:textStyle="bold"
                     android:textSize="15sp"
                     app:layout_constraintStart_toEndOf="@+id/imageView2"

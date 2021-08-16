@@ -3,59 +3,72 @@ package org.ybk.fooddiaryapp.presentation.search
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import org.ybk.fooddiaryapp.R
 import org.ybk.fooddiaryapp.data.model.place.Place
 import org.ybk.fooddiaryapp.databinding.SearchPlaceListItemBinding
 
-class SearchResultAdapter(
-    private val placeList: List<Place>
-) : RecyclerView.Adapter<SearchResultAdapter.SearchResultViewHolder>() {
+class SearchResultAdapter: ListAdapter<Place, SearchResultAdapter.ViewHolder>(searchDiffUtilCallback) {
 
     interface OnItemClickListener {
         fun onItemClick(v: View, pos: Int)
     }
 
-    private var mListener: OnItemClickListener? = null
+    private var onItemClickListener: OnItemClickListener? = null
 
     fun setOnItemClickListener(listener: OnItemClickListener) {
-        mListener = listener
+        onItemClickListener = listener
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchResultViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): SearchResultAdapter.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = DataBindingUtil.inflate<SearchPlaceListItemBinding>(
-            inflater, R.layout.search_place_list_item, parent, false
-        )
-        return SearchResultViewHolder(binding)
+        val binding: SearchPlaceListItemBinding = DataBindingUtil.inflate(
+            inflater, R.layout.search_place_list_item, parent, false)
+        return ViewHolder(binding)
     }
 
-    override fun getItemCount(): Int = placeList.size
-
-    override fun onBindViewHolder(holder: SearchResultViewHolder, position: Int) {
-        holder.bind(placeList[position])
+    override fun onBindViewHolder(holder: SearchResultAdapter.ViewHolder, position: Int) {
+        holder.bind(getItem(position))
     }
 
-    inner class SearchResultViewHolder(
+    inner class ViewHolder(
         private val binding: SearchPlaceListItemBinding
-    ) : RecyclerView.ViewHolder(binding.root) {
+    ): RecyclerView.ViewHolder(binding.root) {
 
-        private val placeName: TextView = itemView.findViewById(R.id.place_name_text)
-
-        fun bind(place: Place) {
-            binding.placeItem = place
-            val temp = place.title.replace("<b>", "")
-            val title = temp.replace("</b>", " ")
-            placeName.text = title
-            itemView.setOnClickListener {
+        init {
+            itemView.setOnClickListener { v ->
                 val pos = adapterPosition
-                if(pos != RecyclerView.NO_POSITION && mListener != null) {
-                    mListener!!.onItemClick(it, pos)
+                onItemClickListener?.let { listener ->
+                    if(pos != RecyclerView.NO_POSITION) {
+                        listener.onItemClick(v, pos)
+                    }
                 }
             }
-            binding.executePendingBindings()
+        }
+
+        fun bind(place: Place) {
+            with(binding) {
+                placeItem = place
+                executePendingBindings()
+            }
+        }
+    }
+
+    companion object {
+        val searchDiffUtilCallback = object: DiffUtil.ItemCallback<Place>() {
+            override fun areItemsTheSame(oldItem: Place, newItem: Place): Boolean {
+                return (oldItem.mapx == newItem.mapx) && (oldItem.mapy == newItem.mapy)
+            }
+
+            override fun areContentsTheSame(oldItem: Place, newItem: Place): Boolean {
+                return oldItem == newItem
+            }
         }
     }
 }

@@ -1,18 +1,10 @@
 package org.ybk.fooddiaryapp.domain.repository
 
 import androidx.lifecycle.MutableLiveData
-import com.google.android.gms.tasks.Task
-import com.google.firebase.auth.AuthCredential
-import com.google.firebase.auth.AuthResult
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.storage.UploadTask
 import io.reactivex.Completable
-import io.reactivex.Observable
-import io.reactivex.Single
 import org.ybk.fooddiaryapp.data.model.diary.Diary
 import org.ybk.fooddiaryapp.data.model.diary.FoodImage
 import org.ybk.fooddiaryapp.data.model.etc.*
-import org.ybk.fooddiaryapp.data.model.place.PlaceRes
 import org.ybk.fooddiaryapp.util.Status
 
 interface DiaryRepository {

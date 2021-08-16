@@ -2,7 +2,15 @@ package org.ybk.fooddiaryapp.presentation.map
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.FragmentComponent
+import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.launch
 import org.ybk.fooddiaryapp.base.BaseViewModel
 import org.ybk.fooddiaryapp.domain.repository.DiaryRepository
@@ -16,9 +24,10 @@ import org.ybk.fooddiaryapp.util.Constants
 import timber.log.Timber
 import javax.inject.Inject
 
-class MapViewModel(
+@HiltViewModel
+class MapViewModel @Inject constructor(
     private val getDiaryListUseCase: GetDiaryListUseCase
-) : BaseViewModel() {
+) : ViewModel() {
 
     private val _diaryList = MutableLiveData<ArrayList<Diary>>()
     val diaryList: LiveData<ArrayList<Diary>> get() = _diaryList

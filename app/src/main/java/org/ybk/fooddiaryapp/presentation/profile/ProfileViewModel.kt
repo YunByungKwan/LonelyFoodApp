@@ -6,6 +6,13 @@ import androidx.lifecycle.viewModelScope
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.FragmentComponent
+import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.scopes.ViewModelScoped
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.launch
@@ -16,6 +23,7 @@ import org.ybk.fooddiaryapp.data.model.diary.Diary
 import org.ybk.fooddiaryapp.data.model.etc.DatabaseResponse
 import org.ybk.fooddiaryapp.data.model.etc.QueryResponse
 import org.ybk.fooddiaryapp.data.model.etc.ValueEventResponse
+import org.ybk.fooddiaryapp.domain.repository.ProfileRepository
 import org.ybk.fooddiaryapp.domain.usecase.AddProfileImagePathUseCase
 import org.ybk.fooddiaryapp.domain.usecase.GetDiaryListUseCase
 import org.ybk.fooddiaryapp.domain.usecase.GetProfileImageUseCase
@@ -24,7 +32,8 @@ import org.ybk.fooddiaryapp.util.Constants
 import timber.log.Timber
 import javax.inject.Inject
 
-class ProfileViewModel(
+@HiltViewModel
+class ProfileViewModel @Inject constructor(
     private val getDiaryListUseCase: GetDiaryListUseCase,
     private val uploadProfileImageUseCase: UploadProfileImageUseCase,
     private val getProfileImageUseCase: GetProfileImageUseCase,

@@ -8,7 +8,9 @@ import org.ybk.fooddiaryapp.data.model.etc.ValueEventResponse
 import org.ybk.fooddiaryapp.domain.repository.DiaryRepository
 import javax.inject.Inject
 
-class GetDiaryUseCase(private val diaryRepository: DiaryRepository) {
+class GetDiaryUseCase @Inject constructor(
+    private val diaryRepository: DiaryRepository
+) {
     suspend fun execute(email: String, registerTime: String): DocumentResponse {
         return diaryRepository.getDiaryFromFirestoreDB(email, registerTime)
     }

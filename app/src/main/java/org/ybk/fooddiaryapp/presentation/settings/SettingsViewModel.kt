@@ -2,17 +2,26 @@ package org.ybk.fooddiaryapp.presentation.settings
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.FragmentComponent
+import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.scopes.ViewModelScoped
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import org.ybk.fooddiaryapp.base.BaseViewModel
 import org.ybk.fooddiaryapp.domain.repository.DiaryRepository
 import org.ybk.fooddiaryapp.data.model.diary.Diary
+import org.ybk.fooddiaryapp.domain.repository.UserRepository
 import org.ybk.fooddiaryapp.domain.usecase.WithDrawFirebaseUseCase
 import org.ybk.fooddiaryapp.util.Status
 import timber.log.Timber
 import javax.inject.Inject
 
-class SettingsViewModel(
+@HiltViewModel
+class SettingsViewModel @Inject constructor(
     private val withDrawFirebaseUseCase: WithDrawFirebaseUseCase
 ): BaseViewModel() {
 

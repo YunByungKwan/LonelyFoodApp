@@ -7,6 +7,6 @@ import org.ybk.fooddiaryapp.data.model.etc.ValueEventResponse
 import org.ybk.fooddiaryapp.domain.repository.ProfileRepository
 import javax.inject.Inject
 
-class GetProfileImageUseCase(private val profileRepository: ProfileRepository) {
+class GetProfileImageUseCase @Inject constructor(private val profileRepository: ProfileRepository) {
     suspend fun execute(email: String): ValueEventResponse = profileRepository.getProfileImage(email)
 }

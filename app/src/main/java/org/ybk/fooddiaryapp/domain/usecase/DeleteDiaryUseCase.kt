@@ -7,10 +7,9 @@ import org.ybk.fooddiaryapp.domain.repository.DiaryRepository
 import org.ybk.fooddiaryapp.util.Status
 import javax.inject.Inject
 
-class DeleteDiaryUseCase(
+class DeleteDiaryUseCase @Inject constructor(
     private val diaryRepository: DiaryRepository
-    ) {
-
+) {
     fun execute(diary: Diary, status: MutableLiveData<Status>) {
         diaryRepository.deleteDiary(diary, status)
     }

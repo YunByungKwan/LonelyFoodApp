@@ -8,7 +8,6 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,40 +15,38 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.theartofdev.edmodo.cropper.CropImage
-import kotlinx.android.synthetic.main.edit_diary_act.*
+import dagger.hilt.android.AndroidEntryPoint
 import org.ybk.fooddiaryapp.BuildConfig
 import org.ybk.fooddiaryapp.R
 import org.ybk.fooddiaryapp.data.model.diary.Diary
 import org.ybk.fooddiaryapp.data.model.diary.FoodImage
-import org.ybk.fooddiaryapp.databinding.EditDiaryActBinding
 import org.ybk.fooddiaryapp.databinding.EditDiaryFragBinding
 import org.ybk.fooddiaryapp.presentation.adapter.FoodImageAdapter
 import org.ybk.fooddiaryapp.presentation.search.SearchActivity
-import org.ybk.fooddiaryapp.util.Constants
-import org.ybk.fooddiaryapp.util.MyApplication
-import org.ybk.fooddiaryapp.util.Utils
+import org.ybk.fooddiaryapp.util.*
 import org.ybk.fooddiaryapp.util.compat.ImageCompat
 import org.ybk.fooddiaryapp.util.compat.PermissionCompat
 import java.io.IOException
-import java.util.ArrayList
+import java.util.*
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class EditDiaryFragment: Fragment() {
 
-    @Inject
-    lateinit var viewModeLFactory: EditDiaryViewModelFactory
+//    @Inject
+//    lateinit var viewModeLFactory: EditDiaryViewModelFactory
+//
+//    lateinit var editDiaryViewModel: EditDiaryViewModel
 
-    lateinit var editDiaryViewModel: EditDiaryViewModel
+    private val editDiaryViewModel: EditDiaryViewModel by viewModels()
 
     private lateinit var binding: EditDiaryFragBinding
 
@@ -60,26 +57,27 @@ class EditDiaryFragment: Fragment() {
 
     private var foodImageAdapter: FoodImageAdapter? = null
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-
-        (requireActivity().applicationContext as MyApplication)
-            .appComponent.editDiaryComponent().create().inject(this)
-    }
+//    override fun onAttach(context: Context) {
+//        super.onAttach(context)
+//
+//        (requireActivity().applicationContext as MyApplication)
+//            .appComponent.editDiaryComponent().create().inject(this)
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        editDiaryViewModel = ViewModelProvider(this,
-            viewModeLFactory).get(EditDiaryViewModel::class.java)
+//        editDiaryViewModel = ViewModelProvider(this,
+//            viewModeLFactory).get(EditDiaryViewModel::class.java)
 
         binding = EditDiaryFragBinding.inflate(layoutInflater).apply {
             this.fragment = this@EditDiaryFragment
             this.viewmodel = editDiaryViewModel
             this.lifecycleOwner = viewLifecycleOwner
         }
+
         val registerTime = arguments?.getString("registerTime")
         editDiaryViewModel.getDiary(email!!, registerTime!!)
 
@@ -87,7 +85,6 @@ class EditDiaryFragment: Fragment() {
 
         editDiaryViewModel.diary.observe(viewLifecycleOwner, { diary ->
             newDiary = Utils.deepCopyDiary(diary)
-            image_count_text.text = diary.imageList.size.toString()
             editDiaryViewModel.imageCount.value = diary.imageList.size
             val tempList = ArrayList<FoodImage>()
             diary.imageList.forEach {
@@ -98,34 +95,17 @@ class EditDiaryFragment: Fragment() {
 
         editDiaryViewModel.imageList.observe(viewLifecycleOwner, { imageList ->
             foodImageAdapter = FoodImageAdapter()
-            image_recycler_view.adapter = foodImageAdapter
-            image_recycler_view.layoutManager = LinearLayoutManager(requireContext(),
+            binding.imageRecyclerView.adapter = foodImageAdapter
+            binding.imageRecyclerView.layoutManager = LinearLayoutManager(requireContext(),
                 LinearLayoutManager.HORIZONTAL, false)
 
-            image_recycler_view.setOnTouchListener { v, _ ->
+            binding.imageRecyclerView.setOnTouchListener { v, _ ->
                 v.parent.requestDisallowInterceptTouchEvent(true)
                 false
             }
 
             val itemTouchHelper = ItemTouchHelper(simpleCallback)
-            itemTouchHelper.attachToRecyclerView(image_recycler_view)
-
-            if(imageList.size > 0) {
-                delete_info_text.visibility = View.VISIBLE
-            } else {
-                delete_info_text.visibility = View.GONE
-            }
-        })
-
-        editDiaryViewModel.imageCount.observe(viewLifecycleOwner, { count ->
-            image_count_text.text = count.toString()
-
-            if(count > 0) {
-                delete_info_text.visibility = View.VISIBLE
-                delete_info_text.bringToFront()
-            } else {
-                delete_info_text.visibility = View.GONE
-            }
+            itemTouchHelper.attachToRecyclerView(binding.imageRecyclerView)
         })
 
         editDiaryViewModel.isComplete.observe(viewLifecycleOwner, { isComplete ->
@@ -135,7 +115,8 @@ class EditDiaryFragment: Fragment() {
                 }
                 AlertDialog.Builder(requireContext())
                     .setTitle(getString(R.string.edit_complete_title))
-                    .setMessage(getString(R.string.edit_complete_msg)).setCancelable(false)
+                    .setMessage(getString(R.string.edit_complete_msg))
+                    .setCancelable(false)
                     .setPositiveButton(getString(R.string.ok)) { _, _ ->
                         // finish()
                     }.show()
@@ -183,7 +164,7 @@ class EditDiaryFragment: Fragment() {
     }
 
     fun onClickEditCompleteButton() {
-        val newContents = content_edit_text.text.toString()
+        val newContents = binding.contentEditText.text.toString()
         val updateTime = Utils.getCurrentTimeMillis().toString()
 
         // 일기가 비어있는 경우
@@ -275,16 +256,16 @@ class EditDiaryFragment: Fragment() {
     ) { result ->
         if(result.resultCode == Activity.RESULT_OK) {
             val getIntent = result.data!!
-            val name = getIntent.getStringExtra(Constants.SEL_MARKER_TITLE).toString()
-            val latitude = getIntent.getDoubleExtra(Constants.SEL_MARKER_LAT, 0.0)
-            val longitude = getIntent.getDoubleExtra(Constants.SEL_MARKER_LNG, 0.0)
-            val address = getIntent.getStringExtra(Constants.SEL_MARKER_ADDRESS)
+            val name = getIntent.getStringExtra(Const.M_TITLE).toString()
+            val latitude = getIntent.getDoubleExtra(Const.M_LAT, 0.0)
+            val longitude = getIntent.getDoubleExtra(Const.M_LNG, 0.0)
+            val address = getIntent.getStringExtra(Const.M_ADDRESS)
 
             newDiary!!.name = name
             newDiary!!.address = address!!
             newDiary!!.mapx = latitude.toString()
             newDiary!!.mapy = longitude.toString()
-            location_text.text = address
+            binding.locationText.text = address
         }
     }
 

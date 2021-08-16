@@ -4,10 +4,19 @@ import android.net.Uri
 import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.firebase.storage.UploadTask
+import com.squareup.inject.assisted.Assisted
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.scopes.ViewModelScoped
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.launch
 import org.ybk.fooddiaryapp.base.BaseViewModel
@@ -23,10 +32,11 @@ import org.ybk.fooddiaryapp.util.Status
 import org.ybk.fooddiaryapp.util.Utils
 import javax.inject.Inject
 
-class AddDiaryViewModel(
+@HiltViewModel
+class AddDiaryViewModel @Inject constructor(
     private val addDiaryUseCase: AddDiaryUseCase,
     private val uploadFoodImageUseCase: UploadFoodImageUseCase
-) : BaseViewModel() {
+) : ViewModel() {
 
     val contents = ObservableField("")
     val address = ObservableField("")
@@ -35,7 +45,6 @@ class AddDiaryViewModel(
     val mapy = MutableLiveData(0.0)
     val viewImageList = MutableLiveData<ArrayList<FoodImage>>()
 
-    val imageList = MutableLiveData<List<FoodImage>>()
     var imageCount = MutableLiveData<Int>()
     var status = MutableLiveData<Status>()
 
@@ -61,7 +70,7 @@ class AddDiaryViewModel(
                         val downloadUrl = response.uri
                         urls.add(downloadUrl)
                         if(index == viewImageList.value!!.size - 1) {
-                            addDiaryToDB(email, urls)
+                            addDiaryToFirestoreDB(email, urls)
                         }
                     }
                     is UploadResponse.Failure -> {
@@ -72,7 +81,7 @@ class AddDiaryViewModel(
         }
     }
 
-    private fun addDiaryToDB(
+    private fun addDiaryToFirestoreDB(
         email: String, serverUrlArrayList: MutableList<String>
     ) = viewModelScope.launch {
         Log.d("TAG2", "AddDiaryViewModel - addDiaryToDB")
@@ -94,7 +103,7 @@ class AddDiaryViewModel(
             "N",
             viewImageList.value!!)
 
-        val response = addDiaryUseCase.execute3(diary)
+        val response = addDiaryUseCase.execute(diary)
         when(response) {
             is TaskResponse.Complete -> {
                 status.value = Status.SUCCESS

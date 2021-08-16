@@ -5,7 +5,7 @@ import io.reactivex.Single
 import org.ybk.fooddiaryapp.domain.repository.ProfileRepository
 import javax.inject.Inject
 
-class UploadProfileImageUseCase(
+class UploadProfileImageUseCase @Inject constructor(
     private val profileRepository: ProfileRepository
     ) {
 

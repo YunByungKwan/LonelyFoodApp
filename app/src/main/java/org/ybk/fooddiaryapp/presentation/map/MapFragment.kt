@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.auth.FirebaseAuth
@@ -19,6 +20,7 @@ import com.naver.maps.map.overlay.InfoWindow
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.overlay.OverlayImage
 import com.naver.maps.map.util.FusedLocationSource
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.map_frag.*
 import org.ybk.fooddiaryapp.R
 import org.ybk.fooddiaryapp.data.model.diary.Diary
@@ -34,32 +36,20 @@ import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class MapFragment : Fragment(), OnMapReadyCallback {
 
-    @Inject
-    lateinit var viewModelFactory: MapViewModelFactory
-
-    lateinit var mapViewModel: MapViewModel
+    private val mapViewModel: MapViewModel by viewModels()
 
     private lateinit var binding: MapFragBinding
     private lateinit var naverMap: NaverMap
     private lateinit var mLocationSource: FusedLocationSource
     private val email = FirebaseAuth.getInstance().currentUser?.email
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-
-        (requireActivity().applicationContext as MyApplication)
-            .appComponent.mapComponent().create().inject(this)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mapViewModel = ViewModelProvider(
-            this, viewModelFactory).get(MapViewModel::class.java)
-
         binding = MapFragBinding.inflate(layoutInflater).apply {
             lifecycleOwner = viewLifecycleOwner
             fragment = this@MapFragment

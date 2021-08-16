@@ -5,6 +5,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -12,12 +18,11 @@ import org.ybk.fooddiaryapp.domain.repository.DiaryRepository
 import org.ybk.fooddiaryapp.data.model.diary.Diary
 import org.ybk.fooddiaryapp.data.model.etc.QueryResponse
 import org.ybk.fooddiaryapp.data.model.etc.TaskResponse
-import org.ybk.fooddiaryapp.domain.usecase.DeleteDiaryUseCase
-import org.ybk.fooddiaryapp.domain.usecase.RecommendRestaurantUseCase
-import org.ybk.fooddiaryapp.domain.usecase.UpdateDiaryToOpenUseCase
+import org.ybk.fooddiaryapp.domain.usecase.*
 import org.ybk.fooddiaryapp.util.Status
 import javax.inject.Inject
 
+@HiltViewModel
 class DotDialogViewModel @Inject constructor(
     private val recommendRestaurantUseCase: RecommendRestaurantUseCase,
     private val updateDiaryToOpenUseCase: UpdateDiaryToOpenUseCase,

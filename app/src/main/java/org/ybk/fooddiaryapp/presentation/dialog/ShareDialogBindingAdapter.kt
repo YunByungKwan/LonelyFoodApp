@@ -5,6 +5,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 import org.ybk.fooddiaryapp.data.model.diary.FoodImage
 import org.ybk.fooddiaryapp.presentation.adapter.FoodImageAdapter
+import org.ybk.fooddiaryapp.presentation.adapter.FoodImagePagerAdapter
 
 object ShareDialogBindingAdapter {
 
@@ -14,7 +15,10 @@ object ShareDialogBindingAdapter {
         viewPager: ViewPager2,
         imageList: List<FoodImage>?) {
         if(viewPager.adapter == null) {
-            viewPager.adapter = FoodImageAdapter(imageList!! as ArrayList<FoodImage>)
+            viewPager.adapter = FoodImagePagerAdapter(imageList!! as ArrayList<FoodImage>)
+        }
+        imageList?.let { list ->
+
         }
     }
 

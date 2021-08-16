@@ -13,8 +13,9 @@ import org.ybk.fooddiaryapp.data.repository.profile.datasource.ProfileRemoteData
 import org.ybk.fooddiaryapp.data.valueEvent
 import org.ybk.fooddiaryapp.util.Constants
 import org.ybk.fooddiaryapp.util.Utils
+import javax.inject.Inject
 
-class ProfileRemoteDataSourceImpl(
+class ProfileRemoteDataSourceImpl @Inject constructor(
     private val mDatabase: FirebaseDatabase,
     private val mStorage: FirebaseStorage
 ): ProfileRemoteDataSource {

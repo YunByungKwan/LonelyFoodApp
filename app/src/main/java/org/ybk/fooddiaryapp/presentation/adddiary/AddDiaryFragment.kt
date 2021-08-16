@@ -2,7 +2,6 @@ package org.ybk.fooddiaryapp.presentation.adddiary
 
 import android.app.Activity
 import android.app.Dialog
-import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
@@ -14,21 +13,21 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.theartofdev.edmodo.cropper.CropImage
-import kotlinx.android.synthetic.main.add_diary_act.*
+import dagger.hilt.android.AndroidEntryPoint
 import org.ybk.fooddiaryapp.BuildConfig
 import org.ybk.fooddiaryapp.R
 import org.ybk.fooddiaryapp.databinding.AddDiaryFragBinding
 import org.ybk.fooddiaryapp.presentation.adapter.FoodImageAdapter
 import org.ybk.fooddiaryapp.presentation.search.SearchActivity
+import org.ybk.fooddiaryapp.util.Const
 import org.ybk.fooddiaryapp.util.Constants
-import org.ybk.fooddiaryapp.util.MyApplication
 import org.ybk.fooddiaryapp.util.Status
 import org.ybk.fooddiaryapp.util.Utils
 import org.ybk.fooddiaryapp.util.compat.ImageCompat
@@ -36,41 +35,35 @@ import org.ybk.fooddiaryapp.util.compat.NetworkCompat
 import org.ybk.fooddiaryapp.util.compat.PermissionCompat
 import timber.log.Timber
 import java.io.IOException
-import javax.inject.Inject
 
+@AndroidEntryPoint
 class AddDiaryFragment: Fragment() {
 
-    @Inject
-    lateinit var viewModelFactory: AddDiaryViewModelFactory
-
-    lateinit var addDiaryViewModel: AddDiaryViewModel
-
-    private val email: String? = FirebaseAuth.getInstance().currentUser?.email
     private lateinit var binding: AddDiaryFragBinding
+
+    private val addDiaryViewModel: AddDiaryViewModel by viewModels()
+
+    private val currentUserEmail: String? = FirebaseAuth.getInstance().currentUser?.email
     private lateinit var dialog: Dialog
     private var imageUri: Uri? = null
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-
-        (requireActivity().applicationContext as MyApplication)
-            .appComponent.addDiaryComponent().create().inject2(this)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = AddDiaryFragBinding.inflate(layoutInflater)
+            .apply {
+                this.fragment = this@AddDiaryFragment
+                this.viewmodel = addDiaryViewModel
+                this.lifecycleOwner = viewLifecycleOwner
+            }
+        dialog = Utils.loadingDialog(requireContext())
+        observingData()
+        return binding.root
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?): View? {
-
-        addDiaryViewModel = ViewModelProvider(
-            this, viewModelFactory).get(AddDiaryViewModel::class.java)
-
-        binding = AddDiaryFragBinding.inflate(layoutInflater).apply {
-            this.fragment = this@AddDiaryFragment
-            this.viewmodel = addDiaryViewModel
-            this.lifecycleOwner = viewLifecycleOwner
-        }
-        dialog = Utils.loadingDialog(requireContext())
-
+    private fun observingData() {
         addDiaryViewModel.status.observe(viewLifecycleOwner, { status ->
             if(dialog.isShowing) {
                 dialog.dismiss()
@@ -97,12 +90,12 @@ class AddDiaryFragment: Fragment() {
         addDiaryViewModel.viewImageList.observe(viewLifecycleOwner, { foodImageList ->
             setDeleteImageInfoText(foodImageList.size)
 
-            val foodImageAdapter = FoodImageAdapter(foodImageList)
-            image_recycler_view.adapter = foodImageAdapter
-            image_recycler_view.layoutManager = LinearLayoutManager(requireContext(),
+            val foodImageAdapter = FoodImageAdapter()
+            binding.imageRecyclerView.adapter = foodImageAdapter
+            binding.imageRecyclerView.layoutManager = LinearLayoutManager(requireContext(),
                 LinearLayoutManager.HORIZONTAL, false)
 
-            image_recycler_view.setOnTouchListener { v, _ ->
+            binding.imageRecyclerView.setOnTouchListener { v, _ ->
                 v!!.parent.requestDisallowInterceptTouchEvent(true)
                 false
             }
@@ -122,10 +115,8 @@ class AddDiaryFragment: Fragment() {
                 }
             }
             val itemTouchHelper = ItemTouchHelper(simpleCallback)
-            itemTouchHelper.attachToRecyclerView(image_recycler_view)
+            itemTouchHelper.attachToRecyclerView(binding.imageRecyclerView)
         })
-
-        return binding.root
     }
 
     fun onClickLocationButton() {
@@ -136,8 +127,7 @@ class AddDiaryFragment: Fragment() {
     fun onClickCameraButton() {
         // 최대 갯수만큼 사진이 추가된 상태에서 버튼 클릭시 토스트 노출
         if(isAddedMaxImageCount()) {
-            Utils.showShortToast(
-                requireContext(), getString(R.string.max_image_info))
+            Utils.showShortToast(requireContext(), getString(R.string.max_image_info))
             return
         }
 
@@ -175,7 +165,7 @@ class AddDiaryFragment: Fragment() {
     }
 
     fun onClickWriteCompleteButton() {
-        val contents = content_edit_text.text.toString()
+        val contents = binding.contentEditText.text.toString()
         // 일기가 비어있는 경우
         if(contents == "") {
             Utils.showShortToast(requireContext(), getString(R.string.warn_contents))
@@ -192,14 +182,17 @@ class AddDiaryFragment: Fragment() {
             return
         }
         dialog.show()
-        addDiaryViewModel.addDiary(email!!)
+
+        currentUserEmail?.let { email ->
+            addDiaryViewModel.addDiary(email)
+        }
     }
 
     private fun setDeleteImageInfoText(imageCount: Int) {
         if(imageCount > 0) {
-            delete_info_text.visibility = View.VISIBLE
+            binding.deleteInfoText.visibility = View.VISIBLE
         } else {
-            delete_info_text.visibility = View.GONE
+            binding.deleteInfoText.visibility = View.GONE
         }
     }
 
@@ -208,12 +201,12 @@ class AddDiaryFragment: Fragment() {
     }
 
     private fun dispatchTakePictureIntent() {
-        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         try {
             val file = ImageCompat.createImageFile(requireContext())
             val uri = FileProvider.getUriForFile(requireContext(),
                 BuildConfig.APPLICATION_ID + ".provider", file)
             imageUri = uri
+            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             intent.putExtra(MediaStore.EXTRA_OUTPUT, uri)
             intent.resolveActivity(requireActivity().packageManager)?.also {
                 takePictureResult.launch(intent)
@@ -276,21 +269,22 @@ class AddDiaryFragment: Fragment() {
     ) { result ->
         if(result.resultCode == Activity.RESULT_OK) {
             val getIntent = result.data!!
-            val name = getIntent.getStringExtra(Constants.SEL_MARKER_TITLE).toString()
-            val latitude = getIntent.getDoubleExtra(Constants.SEL_MARKER_LAT, 0.0)
-            val longitude = getIntent.getDoubleExtra(Constants.SEL_MARKER_LNG, 0.0)
+            val name = getIntent.getStringExtra(Const.M_TITLE).toString()
+            val latitude = getIntent.getDoubleExtra(Const.M_LAT, 0.0)
+            val longitude = getIntent.getDoubleExtra(Const.M_LNG, 0.0)
             addDiaryViewModel.name.value = name
             addDiaryViewModel.mapx.value = latitude
             addDiaryViewModel.mapy.value = longitude
 
-            val address = getIntent.getStringExtra(Constants.SEL_MARKER_ADDRESS)
+            val address = getIntent.getStringExtra(Const.M_ADDRESS)
 
-            location_text.text = address
+            binding.locationText.text = address
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if(requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && resultCode == AppCompatActivity.RESULT_OK) {
+        if(requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE
+            && resultCode == AppCompatActivity.RESULT_OK) {
             val result = CropImage.getActivityResult(data)
             if(resultCode == Activity.RESULT_OK) {
                 val fileUri = result.uri
@@ -298,7 +292,10 @@ class AddDiaryFragment: Fragment() {
                 val filePath = ImageCompat.bitmapToFile(
                     requireContext(), bitmap, Bitmap.CompressFormat.JPEG, 100)
                 val uri = ImageCompat.filePathToUri(filePath)
-                addDiaryViewModel.updateDiaryImagesInUI(email!!, uri)
+
+                currentUserEmail?.let { email ->
+                    addDiaryViewModel.updateDiaryImagesInUI(email, uri)
+                }
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data)

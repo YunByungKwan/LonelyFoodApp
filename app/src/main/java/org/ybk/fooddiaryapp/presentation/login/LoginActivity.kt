@@ -6,6 +6,7 @@ import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -20,6 +21,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.login_act.*
 import org.ybk.fooddiaryapp.BuildConfig
 import org.ybk.fooddiaryapp.R
@@ -30,12 +32,10 @@ import org.ybk.fooddiaryapp.util.*
 import timber.log.Timber
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
-    @Inject
-    lateinit var viewModelFactory: LoginViewModelFactory
-
-    lateinit var loginViewModel: LoginViewModel
+    private val loginViewModel: LoginViewModel by viewModels()
 
     private lateinit var binding: LoginActBinding
     private lateinit var callbackManager: CallbackManager // Facebook
@@ -43,13 +43,8 @@ class LoginActivity : AppCompatActivity() {
     private var dialog: Dialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        (applicationContext as MyApplication)
-            .appComponent.loginComponent().create().inject(this)
-
         super.onCreate(savedInstanceState)
         Log.d("TAG", "LoginActivity - onCreate()")
-        loginViewModel = ViewModelProvider(
-            this, viewModelFactory).get(LoginViewModel::class.java)
         Log.d("TAG", "LoginViewModel 초기화 후")
         binding = DataBindingUtil.setContentView(this, R.layout.login_act)
         binding.activity = this

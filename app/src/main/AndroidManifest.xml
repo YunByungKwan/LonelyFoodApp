@@ -70,10 +70,6 @@
             android:label="@string/find_restaurant"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".presentation.adddiary.AddDiaryActivity"
-            android:label="@string/write_diary"
-            android:screenOrientation="portrait"/>
-        <activity
             android:name=".presentation.login.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar" />

@@ -2,13 +2,16 @@ package org.ybk.fooddiaryapp.presentation.editdiary
 
 import android.net.Uri
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.firebase.storage.UploadTask
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.scopes.ViewModelScoped
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -27,7 +30,8 @@ import org.ybk.fooddiaryapp.util.Utils
 import timber.log.Timber
 import javax.inject.Inject
 
-class EditDiaryViewModel(
+@HiltViewModel
+class EditDiaryViewModel @Inject constructor(
     private val getDiaryUseCase: GetDiaryUseCase,
     private val addDiaryUseCase: AddDiaryUseCase,
     private val uploadFoodImageUseCase: UploadFoodImageUseCase,
@@ -110,7 +114,7 @@ class EditDiaryViewModel(
             imageList.value!![index].serverPath = serverUrlArrayList[index]
         }
 
-        val response = addDiaryUseCase.execute3(diary)
+        val response = addDiaryUseCase.execute(diary)
         when(response) {
             is TaskResponse.Complete -> {
                 _status.value = Status.SUCCESS

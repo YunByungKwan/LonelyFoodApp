@@ -15,28 +15,28 @@ import org.ybk.fooddiaryapp.presentation.settings.SettingsViewModel
 
 @RunWith(MockitoJUnitRunner::class)
 class SettingsViewModelTest {
-    @get:Rule
-    var instantExecutorRule: TestRule = InstantTaskExecutorRule()
-
-    @Mock
-    private lateinit var repo: DiaryRepositoryImpl
-
-    private lateinit var vm: SettingsViewModel
-
-    @Before
-    fun setUp() {
-        RxAndroidPlugins.setInitMainThreadSchedulerHandler{
-            Schedulers.trampoline() }
-        vm = SettingsViewModel(repo)
-        mocking()
-    }
-
-    private fun mocking() {
-
-    }
-
-    @Test
-    fun testIfRepoWithdrawFirebaseIsCalled() {
-
-    }
+//    @get:Rule
+//    var instantExecutorRule: TestRule = InstantTaskExecutorRule()
+//
+//    @Mock
+//    private lateinit var repo: DiaryRepositoryImpl
+//
+//    private lateinit var vm: SettingsViewModel
+//
+//    @Before
+//    fun setUp() {
+//        RxAndroidPlugins.setInitMainThreadSchedulerHandler{
+//            Schedulers.trampoline() }
+//        vm = SettingsViewModel(repo)
+//        mocking()
+//    }
+//
+//    private fun mocking() {
+//
+//    }
+//
+//    @Test
+//    fun testIfRepoWithdrawFirebaseIsCalled() {
+//
+//    }
 }

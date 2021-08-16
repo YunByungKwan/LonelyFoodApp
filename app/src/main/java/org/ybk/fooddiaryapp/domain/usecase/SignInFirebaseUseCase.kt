@@ -7,7 +7,7 @@ import io.reactivex.Single
 import org.ybk.fooddiaryapp.domain.repository.UserRepository
 import javax.inject.Inject
 
-class SignInFirebaseUseCase(
+class SignInFirebaseUseCase @Inject constructor(
     private val userRepository: UserRepository
     ) {
 
